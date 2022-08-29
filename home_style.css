@@ -1,0 +1,123 @@
+#header_container {
+	display: flex;
+	position : fixed;/*fixed이면 다른 position에 의해 무시된다.*/
+	inset: 0;
+	height: 80px;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid lightgray;
+	padding: 0 80px;
+}
+#logo_box {
+	flex: 0 0 102px;
+	height: inherit;
+}
+#logo {
+	padding: 24px 0;
+	color: rgb(255, 56, 92);
+}
+
+#menu_box {
+	flex: 0 0 ;
+	height: 42px;
+}
+#menu_bar {
+	display: flex;
+	align-items: center;
+}
+.menu {
+	cursor: pointer;
+	background-color: inherit;
+}
+#host {
+	width: 87px;
+	text-align: center;
+	padding: 12px;
+	font-size: 14px;
+	color: #222222;
+	text-decoration: none;
+}
+#host:hover {
+	background-color: #F7F7F7;
+	border-bottom-left-radius: 42px;
+	border-top-left-radius: 42px;
+	border-bottom-right-radius: 42px;
+	border-top-right-radius: 42px;
+}
+#lang {
+	width: 40px;
+	border-style: none;
+	padding: 12px;
+}
+#lang:hover {
+	background-color: #F7F7F7;
+	border-bottom-left-radius: 42px;
+	border-top-left-radius: 42px;
+	border-bottom-right-radius: 42px;
+	border-top-right-radius: 42px;
+}
+#login_menu	{
+	width: 77px;
+	height: 42px;
+	border: 1px solid lightgray;
+	border-bottom-left-radius: 42px;
+	border-top-left-radius: 42px;
+	border-bottom-right-radius: 42px;
+	border-top-right-radius: 42px;
+}
+
+#search_box {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, 0);
+	top: 0;
+	height: 80px;
+	padding: 16px 0;
+	box-sizing: border-box;
+}
+#search_bar {
+	display: flex;
+	height: 48px;
+	align-self: center;
+	/* width: 360px */
+}
+.search {
+	height: inherit;
+	cursor: pointer;
+	font-size: 14px;
+	background-color: inherit;
+	padding: 0;
+	border-bottom: 1px solid lightgray;
+	border-top: 1px solid lightgray;
+	border-right: 0;
+	border-left: 0;
+}
+.search_line {
+	border-right: 1px solid lightgray;
+}
+#search_where {
+	width: 90px;
+	border-left: 1px solid lightgray;
+	border-bottom-left-radius: 48px;
+	border-top-left-radius: 48px;
+}
+#search_when {
+	width: 109px;
+}
+#search_who {
+	color: gray;
+	width: 95px;
+}
+#search_btn {
+	border-bottom-right-radius: 48px;
+	border-top-right-radius: 48px;
+	border-right: 1px solid lightgray;
+	width: 40px;
+}
+#search_icon {
+	background-color: #FF385C;
+	color: white;
+	padding: 10px;
+	margin: 7px 7px 7px 0;
+	border-radius: 50%;
+}
