@@ -1,9 +1,19 @@
 body {
 	margin: 0;
-	/* font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif; */
+	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
+#header_shadow_box {
+	position: fixed;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	height: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.2)
+}
 #header_container {
+	box-sizing: border-box;
 	display: flex;
 	position : fixed;/*fixed이면 다른 position에 의해 무시된다.*/
 	inset: 0;
@@ -16,13 +26,12 @@ body {
 }
 #logo_box {
 	flex: 0 0 102px;
-	height: inherit;
+	height: 80px;
 }
 #logo {
 	padding: 24px 0;
 	color: rgb(255, 56, 92);
 }
-
 #menu_box {
 	position: relative;
 	flex: 0 0 ;
@@ -140,6 +149,33 @@ body {
 	font-weight: 600;
 }
 
+#activity_container {
+	visibility: hidden;
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, 0);
+	top: 0;
+	display: flex;
+	height: 48px;
+	padding: 16px 0;
+}
+.activity_box {
+	cursor: pointer;
+	background-color: inherit;
+	font-weight: 400;
+	font-size: 16px;
+	border-style: none;
+}
+#indoor_box {
+	padding : 10px 0;
+	width: 48px;
+}
+#outdoor_box {
+	width: 48px;
+}
+#online_box {
+	width: 87px;
+}
 #search_box {
 	position: fixed;
 	left: 50%;
@@ -175,6 +211,7 @@ body {
 	background-color: inherit;
 	padding: 0;
 	border-style: none;
+	border-radius: 48px;
 }
 .search_line {
 	height: 24px;

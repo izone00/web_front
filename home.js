@@ -64,5 +64,61 @@ document.addEventListener('scroll', function() {
 	if (document.documentElement.scrollTop > 0)
 		navCon.style.boxShadow = "0 0 10px #DDDDDD"
 	else
-	navCon.style.boxShadow = "none";
+		navCon.style.boxShadow = "none";
 });
+
+const headerCon = document.getElementById("header_container");
+const searchBar = document.getElementById("search_bar");
+const searchBox = document.getElementById("search_box");
+const actiCon = document.getElementById("activity_container");
+const headShadow = document.getElementById("header_shadow_box");
+
+searchBar.onclick = function() {
+	// headerCon.style.height = "160px";
+	// headerCon.style.paddingBottom = "80px";
+	// searchBox.style.padding = "0 7px";
+
+	headShadow.style.height = "100%";
+	searchBox.style.height = "66px";
+	searchBar.style.height = "66px";
+	actiCon.style.visibility = "visible";
+
+	let id = null;
+	let searchWidth = 365;
+	let searPosTop = 0;
+	let searPadding = 16;
+	let headHeight = 80;
+	let headPaddingBot = 0;
+	clearInterval(id);
+	console.log("ss");
+	id = setInterval(frame, 1);
+	function frame() {
+		if (searchWidth >= 850){
+		{
+			searchBar.style.width = "850px";
+			searchBox.style.top = "80px";
+			searchBox.style.padding = "0 7px";
+			headerCon.style.height = "160px";
+			headerCon.style.paddingBottom = "80px";
+			clearInterval(id);
+		}
+		} else {
+			let speed = 15;
+			searchWidth += speed;
+			searchBar.style.width = String(searchWidth) + "px";
+			searPosTop += (80*speed / 485);
+			searchBox.style.top = String(searPosTop) + "px";
+			searPadding -= (16*speed / 485) 
+			searchBox.style.padding = String(searPadding) + "px 7px";
+			headHeight += (80*speed / 485);
+			headerCon.style.height = String(headHeight) + "px";
+			headPaddingBot += (80*speed / 485);
+			headerCon.style.paddingBottom = String(headPaddingBot) + "px";
+			speed -= 0.2;
+		}
+	}
+}
+
+headShadow.onclick = function () {
+	
+}
