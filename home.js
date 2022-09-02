@@ -39,16 +39,35 @@ const navLeft = document.getElementById("nav_left");
 
 
 themeRightBtn.onclick = function() {
-	let scrollLeft = document.getElementById("theme_icon_container").scrollLeft;
-	document.getElementById("theme_icon_container").scrollLeft += 500;
-	if (scrollLeft === document.getElementById("theme_icon_container").scrollLeft)
-		navRight.style.visibility = "hidden";
+	let id = null;
+	let move = 0;
+	clearInterval(id);
+	id = setInterval(scrollFun, 1);
+	function scrollFun() {
+		move += 10;
+		let scrollLeft = document.getElementById("theme_icon_container").scrollLeft;
+		document.getElementById("theme_icon_container").scrollLeft += 10;
+		if (scrollLeft === document.getElementById("theme_icon_container").scrollLeft)
+			navRight.style.visibility = "hidden";
+		if (move >= 500)
+			clearInterval(id);
+	}
 	navLeft.style.visibility = "visible";
 };
 themeLeftBtn.onclick = function() {
-	document.getElementById("theme_icon_container").scrollLeft -= 500;
-	if (document.getElementById("theme_icon_container").scrollLeft === 0)
-		navLeft.style.visibility = "hidden";
+	let id = null;
+	let move = 0;
+	clearInterval(id);
+	id = setInterval(scrollFun, 1);
+	function scrollFun() {
+		move += 10;
+		let scrollLeft = document.getElementById("theme_icon_container").scrollLeft;
+		document.getElementById("theme_icon_container").scrollLeft -= 10;
+		if (0 === document.getElementById("theme_icon_container").scrollLeft)
+			navLeft.style.visibility = "hidden";
+		if (move >= 500)
+			clearInterval(id);
+	}
 	navRight.style.visibility = "visible";
 };
 
@@ -74,10 +93,6 @@ const actiCon = document.getElementById("activity_container");
 const headShadow = document.getElementById("header_shadow_box");
 
 searchBar.onclick = function() {
-	// headerCon.style.height = "160px";
-	// headerCon.style.paddingBottom = "80px";
-	// searchBox.style.padding = "0 7px";
-
 	headShadow.style.height = "100%";
 	searchBox.style.height = "66px";
 	searchBar.style.height = "66px";
@@ -90,7 +105,6 @@ searchBar.onclick = function() {
 	let headHeight = 80;
 	let headPaddingBot = 0;
 	clearInterval(id);
-	console.log("ss");
 	id = setInterval(frame, 1);
 	function frame() {
 		if (searchWidth >= 850){

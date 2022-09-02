@@ -168,13 +168,13 @@ body {
 }
 #indoor_box {
 	padding : 10px 0;
-	width: 48px;
+	width: 64px;
 }
 #outdoor_box {
-	width: 48px;
+	width: 64px;
 }
 #online_box {
-	width: 87px;
+	width: 115px;
 }
 #search_box {
 	position: fixed;
