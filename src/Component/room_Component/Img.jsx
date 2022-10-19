@@ -1,3 +1,4 @@
+import { hover } from "@testing-library/user-event/dist/hover";
 import styled, {css} from "styled-components";
 import img_arr from "./img_src";
 
@@ -45,7 +46,12 @@ const ImgBtn = styled.button`
 	css`
 		border-bottom-right-radius: 15px;
 	`}
+	&:hover {
+				filter: brightness(0.85);
+			}
+	transition: 0.3s ease-out;
 `
+
 const Img = () => {
 
 	return (

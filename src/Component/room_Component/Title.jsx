@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
 import { StarSvg } from "../svg";
+import expl from "../dummy";
 
 const TitleText = styled.div`
 	font-size: 26px;
@@ -27,14 +28,14 @@ const Title = () => {
 
 	return (
 		<div style={{display: "flex", flexDirection: "column", padding: "26px 80px 0 80px"}}>
-			<TitleText>별이 보이는 감성충만 프라이빗 복층 Cosmos Room</TitleText>
+			<TitleText>{expl.title}</TitleText>
 			<div style={{display: "flex", flexDirection: "row", justifyContent: "space-between", fontSize: "14px", height: "28px"}}>
 				<div style={{display: "flex", flexDirection: "row", alignItems: "flex-end"}}>
 					<div style={{marginRight: "4px"}}><StarSvg /></div>
 					<b>4.97 · </b>&nbsp;
 					<TitleBtn>후기 475개</TitleBtn>
 					&nbsp;· 슈퍼호스트 ·&nbsp;
-					<TitleBtn> Gimsatgat-myeon, Yeongweol, 강원도, 한국</TitleBtn>
+					<TitleBtn>{expl.location}</TitleBtn>
 				</div>
 				<div style={{display: "flex", flexDirection: "row"}}>
 					<TitleBtn shadow={true}>공유하기</TitleBtn>

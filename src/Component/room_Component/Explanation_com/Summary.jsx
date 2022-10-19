@@ -30,7 +30,7 @@ const Summary = () => {
 		<SummaryBox>
 			<div style={{display: "flex", flexDirection: "column"}}>
 				<SummaryTitle>
-					{expl.title}
+					{expl.short}
 				</SummaryTitle>
 				<SummaryOpt>
 					{expl.option}

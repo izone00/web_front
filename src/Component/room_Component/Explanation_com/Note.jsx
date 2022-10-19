@@ -24,7 +24,7 @@ const NoteList = expl.note_list.map(note => (
 		<div><NoteSvg icon={note.icon}/></div>
 		<div style={{display: "flex", flexDirection: "column", marginLeft: "16px"}}>
 			<NoteShort>
-				{note.short}	
+				{note.short}
 			</NoteShort>
 			<NoteText>
 				{note.text}
