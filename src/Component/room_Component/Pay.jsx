@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
-
+import expl, {average} from "../dummy";
+import { StarSvg } from "../svg";
 
 const PayCon = styled.div`
 	position: sticky;
@@ -17,8 +18,13 @@ const PayText = styled.div`
 	word-break: keep-all;
 `
 const PayReview = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 	margin-top: 8px;
 	margin-bottom: 24px;
+	font-size: 14px;
+	font-weight: 600;
 `
 const PayCheck = styled.div`
 	margin-bottom: 16px;
@@ -50,22 +56,30 @@ const Pay = () => {
 				요금을 확인하려면 날짜를 입력하세요.
 			</PayText>
 			<PayReview>
-			 평균평점 및 후기
+				<StarSvg />
+					&nbsp;{average.total.toFixed(2)} ·
+				<span style={{color: "#717171", textDecoration: "underline"}}>
+					&nbsp;후기 {expl.review_list.length}개
+				</span>
 			</PayReview>
 			<PayCheck>
 				<div>
-					<div style={{display: "flex", flexDirection: "row"}}>
-						<div style={{width: "50%", padding: "10px 12px"}}>
+					<div style={{display: "flex", flexDirection: "row", borderBottom: "1px solid #B0B0B0"}}>
+						<div style={{width: "50%", padding: "14px 12px 10px 12px", borderRight: "1px solid #B0B0B0"}}>
 							<PayFont>체크인</PayFont>
-							<div style={{lineHeight: "18px", color: "#717171"}}>날짜 추가</div>
+							<div style={{lineHeight: "18px", color: "#717171", lineHeight: "20px"}}>
+								날짜 추가
+							</div>
 						</div>
-						<div style={{width: "50%", padding: "10px 12px"}}>
+						<div style={{width: "50%", padding: "14px 12px 10px 12px"}}>
 							<PayFont>체크아웃</PayFont>
-							<div style={{lineHeight: "18px", color: "#717171"}}>날짜 추가</div>
+							<div style={{lineHeight: "18px", color: "#717171", lineHeight: "20px"}}>
+								날짜 추가
+							</div>
 						</div>
 					</div>
 				</div>
-				<div style={{width: "100%", padding: "10px 12px"}}>
+				<div style={{width: "100%", padding: "14px 12px 10px 12px"}}>
 					<PayFont>인원</PayFont>
 					게스트 1명
 				</div>

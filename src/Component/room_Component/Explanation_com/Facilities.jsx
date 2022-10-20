@@ -2,6 +2,7 @@ import styled, {css} from "styled-components";
 import { SubTitle } from "../../util";
 import { FacSvg } from "../../svg";
 import expl from "../../dummy";
+import { BigBtn } from "../../util";
 
 const FacBox = styled.div`
 	display: flex;
@@ -14,16 +15,6 @@ const FacList = expl.fac.map( facil => (
 	</FacBox>
 ));
 
-const FacBtn = styled.button`
-	margin-top: 24px;
-	padding: 13px 23px;
-	background-color: inherit;
-	border: 1px solid black;
-	border-radius: 8px;
-	font-size: 16px;
-	font-weight: 600;
-	cursor: pointer;
-`
 const Facilities = () => {
 	
 	return (
@@ -41,9 +32,11 @@ const Facilities = () => {
 					{FacList}
 				</div>
 			</div>
-			<FacBtn>
-				편의시설 {expl.fac.length}개 모두 보기
-			</FacBtn>
+			<div style={{marginTop: "24px"}}>
+				<BigBtn>
+					편의시설 {expl.fac.length}개 모두 보기
+				</BigBtn>
+			</div>
 		</div>
 	);
 };

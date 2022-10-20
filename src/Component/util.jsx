@@ -15,5 +15,13 @@ const SubTitle = styled.div`
 	font-weight: 600;
 	line-height: 26px;
 `
-
-export {MoreBtn, SubTitle};
+const BigBtn = styled.button`
+	padding: 13px 23px;
+	background-color: inherit;
+	border: 1px solid black;
+	border-radius: 8px;
+	font-size: 16px;
+	font-weight: 600;
+	cursor: pointer;
+`
+export {MoreBtn, SubTitle, BigBtn};

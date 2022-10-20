@@ -17,26 +17,43 @@ const expl = {
 	min_day : 2,
 	review_list : [],
 };
+class review_rate {
+	constructor (clean, precision, comunication, location, checkin, price) {
+		this.clean = clean;
+		this.precision = precision;
+		this.comunication = comunication;
+		this.location = location;
+		this.checkin = checkin;
+		this.price = price;
+	};
+};
+class review_form {
+	constructor(icon, name, date, text, rate){
+		this.icon = icon;
+		this.name = name;
+		this.date = date;
+		this.text = text;
+		this.rate = rate;
+	};
+};
 
-expl.review_list[0] = {
-	icon : "",
-	clean : 5,
-	precision : 5,
-	comunication : 5,
-	location : 5,
-	checkin : 5,
-	price : 5,
-}
+expl.review_list[0] = new review_form("https://a0.muscache.com/im/users/32750178/profile_pic/1437221687/original.jpg?im_w=240", "Taeyoung", "2022년 10월", "text1", new review_rate(5,5,5,5,5,5));
+expl.review_list[0].text = `행복했습니다:)
+늦은시간에 도착했는데 친절하게 맞아주시고,
+숙소는 다른 후기들처럼 정말 깨끗하고 예뻤습니다.
+특히 다락방에서 보이는 하늘이 너무 예뻐 힐링 가득했네요
+귀여운 고양이와 토끼가 있어 너무 행복했어요.
+명소나 맛집도 친절히 알려주시고,
+다음에 올 손님들을 위해 불멍용 화로도 준비하고계시더라고요:)
+저녁에 달아주신 해먹, 예쁘고 잘 관리된 정원, 친절하신 호스트 부부분들 덕분에 좋은 추억으로 오래오래 기억될 것 같네요.
+무조건 또 방문할 예정입니다! 강추!!!`
+expl.review_list[1] = new review_form("", "Hyekyun", "2022년 10월", "text2", new review_rate(4,5,3,2,5,1));
+expl.review_list[2] = expl.review_list[0];
+expl.review_list[3] = expl.review_list[0];
+expl.review_list[4] = expl.review_list[0];
+expl.review_list[5] = expl.review_list[1];
+// console.log(expl.review_list);
 
-expl.review_list[1] = {
-	icon : "",
-	clean : 4,
-	precision : 5,
-	comunication : 3,
-	location : 4,
-	checkin : 5,
-	price : 4,
-}
 expl.fac[0] = {
 	icon : "M16 1a5 5 0 0 1 5 5 5 5 0 0 1 0 10 5.002 5.002 0 0 1-4 4.9v4.287C18.652 23.224 21.153 22 23.95 22a8.94 8.94 0 0 1 3.737.814l.313.15.002 2.328A6.963 6.963 0 0 0 23.95 24c-3.542 0-6.453 2.489-6.93 5.869l-.02.15-.006.098a1 1 0 0 1-.876.876L16 31a1 1 0 0 1-.974-.77l-.02-.124C14.635 26.623 11.615 24 7.972 24a6.963 6.963 0 0 0-3.97 1.234l.002-2.314c1.218-.6 2.57-.92 3.968-.92 2.818 0 5.358 1.24 7.028 3.224V20.9a5.002 5.002 0 0 1-3.995-4.683L11 16l-.217-.005a5 5 0 0 1 0-9.99L11 6l.005-.217A5 5 0 0 1 16 1zm2.864 14.1c-.811.567-1.799.9-2.864.9s-2.053-.333-2.864-.9l-.062.232a3 3 0 1 0 5.851.001zM11 8a3 3 0 1 0 .667 5.926l.234-.062A4.977 4.977 0 0 1 11 11c0-1.065.333-2.053.9-2.864l-.232-.062A3.013 3.013 0 0 0 11 8zm10 0c-.228 0-.45.025-.667.074l-.234.062C20.667 8.947 21 9.935 21 11a4.977 4.977 0 0 1-.9 2.864l.232.062A3 3 0 1 0 21 8zm-5 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0-5a3 3 0 0 0-2.926 3.667l.062.234C13.947 6.333 14.935 6 16 6s2.053.333 2.864.9l.062-.232A3 3 0 0 0 16 3z" ,
 	text : "정원 전망",
@@ -98,4 +115,26 @@ expl.detail_text = `영월의 스테이하우스는 커플이 프라이빗하게
 expl.loca_text = `김삿갓계곡은 아름다운 기암절벽과 깨끗한 수질로 유명하며 주변에는 여러 야생화와 맑은 공기를 만들어주는 나무들이 있습니다.
 숙소 주변에는 외씨버선길과 같은 아름다운 산책로가 있습니다.^^
 하이원 워터월드, 단양 패러글라이딩, 정선 레일바이크, 민둥산 억새축제, 제천 리솜 포레스트 스파 등을 30~40분정도 거리에서 모두 즐기실 수 있습니다.`
+let average = {
+	clean : 0,
+	precision : 0,
+	comunication : 0,
+	location : 0,
+	checkin : 0,
+	price : 0,
+	total : 0,
+};
+expl.review_list.map(re => (
+	Object.keys(re.rate).forEach((key) => {
+		if (key != "icon")
+			average[key] += re.rate[key];
+	})
+));
+// console.log(average);
+average.total += average.clean + average.precision + average.comunication + average.location + average.checkin + average.price;
+average.total /= (6*expl.review_list.length);
+
+
+
 export default expl;
+export {average};
