@@ -5,7 +5,7 @@ import AirCover from "./Explanation_com/AirCover";
 import Detail from "./Explanation_com/Detail";
 import Bed from "./Explanation_com/Bed";
 import Facilities from "./Explanation_com/Facilities";
-import Calander from "./Calander";
+import Checkin from "./Checkin";
 
 const Explanation = () => {
 
@@ -17,7 +17,7 @@ const Explanation = () => {
 			<Detail />
 			<Bed />
 			<Facilities />
-			<Calander />
+			<Checkin />
 		</div>
 	);
 };
