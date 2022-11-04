@@ -22,14 +22,14 @@
 	background-color: red;
 	transition: background-color 2s ease;
 }
-.logo_box {
+/* .logo_box {
 	flex: 1 1 ;
-	/* height: 80px; */
-}
-#logo {
+	height: 80px;
+} */
+/* #logo {
 	padding: 24px 0;
 	color: rgb(255, 56, 92);
-}
+} */
 #menu_box {
 	display: flex;
 	justify-content: end;

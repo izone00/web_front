@@ -2,8 +2,10 @@ import { LogoSvg } from "./svg";
 
 const Logo = () => {
 	return (
-		<div className="logo_box">
-			<LogoSvg />
+		<div style={{flex: "1 1", height: "100%", position: "relative"}}>
+			<a href="./" style={{height: "100%", width: "102px", position: "absolute"}}>
+				<LogoSvg />
+			</a>
 		</div>
 	)
 }

@@ -1,6 +1,6 @@
 import Logo from "./Logo.jsx"
 import Search from "./Search"
-import Menu from "./menu.jsx"
+import Menu from "./Menu.jsx"
 import React, {useState} from "react"
 // import test from "../event/test"
 

@@ -1,6 +1,21 @@
 import {EarthSvg, MenuSvg, LoginSvg} from "./svg.js"
+import { useState } from "react"
 
-const menu = () => {
+const MenuModal = () => {
+
+	return (
+		<div>
+			hello
+		</div>
+	)
+}
+const Menu = () => {
+
+	const [menuOpen, setMenuOpen] = useState(false);
+
+	const showMenu = () => {
+		setMenuOpen(true);
+	};
 
 	return (
 		<nav id="menu_box">
@@ -9,13 +24,16 @@ const menu = () => {
 				<button class="menu" id="lang">
 					<EarthSvg />
 				</button>
-				<button class="menu" id="login_menu">
-					<MenuSvg />
-					<LoginSvg />
-				</button>
+				<div>
+					<button class="menu" id="login_menu" onClick={showMenu}>
+						<MenuSvg />
+						<LoginSvg />
+					</button>
+					{menuOpen && <MenuModal />}
+				</div>
 			</div>
 		</nav>
 	)
 }
 
-export default menu
+export default Menu
