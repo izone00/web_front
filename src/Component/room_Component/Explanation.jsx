@@ -5,12 +5,12 @@ import AirCover from "./Explanation_com/AirCover";
 import Detail from "./Explanation_com/Detail";
 import Bed from "./Explanation_com/Bed";
 import Facilities from "./Explanation_com/Facilities";
-import Checkin from "./Checkin";
+import Checkin from "./Explanation_com/Checkin";
 
 const Explanation = () => {
 
 	return (
-		<div style={{display: "flex", flexDirection: "column", flex: "3 3 10px", borderBottom: "1px"}}>
+		<div style={{display: "flex", flexDirection: "column", width: "60%", borderBottom: "1px"}}>
 			<Summary />
 			<Note />
 			<AirCover />

@@ -8,7 +8,7 @@ const Main = () => {
 		<div style={{padding: "0 80px"}}>
 			<div style={{display: "flex", flexDirection: "row", borderBottom: "1px solid #DDDDDD"}}>
 				<Explanation />
-				<div style={{flex: "2 2 10px"}}>
+				<div style={{width: "40%"}}>
 					<Pay />
 				</div>
 			</div>
