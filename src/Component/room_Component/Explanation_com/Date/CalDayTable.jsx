@@ -34,7 +34,9 @@ const CalDayTable = (props) => {
 
 	return (
 		<table style={{fontSize: "14px", fontWeight: "600", lineHeight: "20px", width: "100%"}}>
-			{CalDayMat}
+			<tbody>
+				{CalDayMat}
+			</tbody>
 		</table>
 	)
 }

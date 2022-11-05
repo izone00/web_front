@@ -91,14 +91,14 @@
 	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
 }
-#login_three_line {
+/* #login_three_line {
 	
-}
-#login_icon	{
+} */
+/* #login_icon	{
 	height: 30px;
 	width: 30px;
-}
-#login_scroll_container {
+} */
+/* #login_scroll_container {
 	visibility: hidden;
 	position: fixed;
 	right: 80px;
@@ -115,21 +115,27 @@
 	background-color: white;
 	box-shadow: 0 0 10px #DDDDDD;
 	font-size: 14px;
-}
-.login_scroll_box {
+} */
+/* .login_scroll_box {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-}
-#login_scroll_top {
+} */
+/* #login_scroll_top {
 	height: 90px;
 	margin-bottom: 8px;
-}
-#login_scroll_bot {
+} */
+/* #login_scroll_bot {
 	height: 135px;
 	margin-top: 8px;
-}
-.login_opt {
+} */
+/* #login_scroll_line {
+	
+} */
+/* #login_signin {
+	font-weight: 600;
+} */
+/* .login_opt {
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -138,17 +144,10 @@
 	border-style: none;
 	text-align: left;
 	padding-left: 20px;
-}
-.login_opt:hover {
+} */
+/* .login_opt:hover {
 	background-color: #F7F7F7;
-}
-#login_scroll_line {
-	height: 1px;
-	background-color: #B0B0B0;
-}
-#login_signin {
-	font-weight: 600;
-}
+} */
 
 #activity_container {
 	visibility: hidden;
@@ -229,10 +228,10 @@
 /* #search_btn {
 	width: 40px;
 } */
-#search_icon {
+/* #search_icon {
 	background-color: #FF385C;
 	color: white;
 	padding: 10px;
 	margin: 7px 0px 7px 0;
 	border-radius: 50%;
-}
+} */
