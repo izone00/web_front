@@ -20,7 +20,7 @@ const MenuListCon = styled.div`
 	box-shadow: 0 0 10px #DDDDDD;
 	font-size: 14px;
 `
-const MenuListOpt = styled.button`
+const MenuListBtn = styled.button`
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -41,16 +41,13 @@ const MenuListLine = styled.div`
 `
 const MenuList = (props) => {
 
-	const showSignUp = () => {
-		props.signUp(true);
-	};
-
-	const showLogin = () => {
-		props.login(true);
+	const showSign = () => {
+		props.sign(true);
+		props.menu(false);
 	};
 	
 	const menuListRef = useRef();
-
+		
 	useEffect(() => {
 		const handler = (event) => {
 			if (menuListRef.current && !menuListRef.current.contains(event.target) && !props.menuBtnRef.current.contains(event.target))
@@ -66,30 +63,29 @@ const MenuList = (props) => {
 
 	return (
 		<MenuListCon ref={menuListRef}>
-				<MenuListOpt onClick={showSignUp}>
+				<MenuListBtn onClick={showSign}>
 					<span style={{fontWeight: "600"}}>회원 가입</span>
-				</MenuListOpt>
-				<MenuListOpt onClick={showLogin}>
+				</MenuListBtn>
+				<MenuListBtn onClick={showSign}>
 					로그인
-				</MenuListOpt>
+				</MenuListBtn>
 				<MenuListLine />
-				<MenuListOpt>
+				<MenuListBtn>
 					숙소 호스트 되기
-				</MenuListOpt>
-				<MenuListOpt>
+				</MenuListBtn>
+				<MenuListBtn>
 					체험 호스팅 하기
-				</MenuListOpt>
-				<MenuListOpt>
+				</MenuListBtn>
+				<MenuListBtn>
 					도움말
-				</MenuListOpt>
+				</MenuListBtn>
 		</MenuListCon>
 	)
 }
 const Menu = () => {
 
 	const [menuOpen, setMenuOpen] = useState(false);
-	const [signUpOpen, setSignUpOpen] = useState(false);
-	const [loginOpen, setLoginOpen] = useState(false);
+	const [signOpen, setSignOpen] = useState(false);
 	
 	const showMenu = () => {
 		setMenuOpen(!menuOpen);
@@ -108,11 +104,9 @@ const Menu = () => {
 						<MenuSvg />
 						<LoginSvg />
 					</button>
-					{menuOpen && <MenuList signUp={setSignUpOpen} login={setLoginOpen} menu={setMenuOpen} menuBtnRef={menuBtnRef}/>}
+					{menuOpen && <MenuList sign={setSignOpen} menu={setMenuOpen} menuBtnRef={menuBtnRef}/>}
 				</div>
-				<Sign />
-					{signUpOpen && <div>signup</div>}
-					{loginOpen && <div>login</div>}
+					{signOpen && <Sign setSignOpen={setSignOpen} />}
 			</div>
 		</nav>
 	)

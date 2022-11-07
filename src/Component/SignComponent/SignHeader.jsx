@@ -36,11 +36,15 @@ const SignHeadText = styled.div`
 	font-size: 16px;
 	font-weight: 800;
 `
-const SignHeader =  () => {
+const SignHeader =  (props) => {
+	
+	const closeSign = () => {
+		props.setSignOpen(false);
+	}
 	
 	return (
 		<SignHeadCon>
-			<SignExitBtn>
+			<SignExitBtn onClick={closeSign}>
 				<XSvg />
 			</SignExitBtn>
 			<SignHeadText>

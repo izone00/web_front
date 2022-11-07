@@ -24,7 +24,6 @@ let img_right_btn = document.getElementById("img_right_num1");
 let	img_idx = 0;
 
 img_right_btn.onclick = function() {
-	console.log(img_idx);
 	if (img_idx + 1 < img1_link_lst.length)
 	{
 		img_idx++;
