@@ -7,6 +7,9 @@ const expl = {
 	short : "Jeong Im 님이 호스팅하는 게스트용 별채 전체",
 	option : "최대 인원 · 2명침실 · 1개침대 · 1개 · 욕실 1개",
 	img_src : "https://a0.muscache.com/im/users/32099522/profile_pic/1430206316/original.jpg?im_w=240",
+	sign_date : "2015년 4월",
+	host_text : "",
+	host_to_geust : "",
 	note_list : [],
 	aircover : {
 		img : "https://a0.muscache.com/im/pictures/51a7f002-b223-4e05-a2af-0d4838411d92.jpg",
@@ -115,6 +118,27 @@ expl.detail_text = `영월의 스테이하우스는 커플이 프라이빗하게
 expl.loca_text = `김삿갓계곡은 아름다운 기암절벽과 깨끗한 수질로 유명하며 주변에는 여러 야생화와 맑은 공기를 만들어주는 나무들이 있습니다.
 숙소 주변에는 외씨버선길과 같은 아름다운 산책로가 있습니다.^^
 하이원 워터월드, 단양 패러글라이딩, 정선 레일바이크, 민둥산 억새축제, 제천 리솜 포레스트 스파 등을 30~40분정도 거리에서 모두 즐기실 수 있습니다.`
+expl.host_text = `안녕하세요. 게스트님!
+
+저희 부부는 퇴직 후 자연을 좋아하여 이곳 영월 김삿갓 계곡에 집을 짓고 살게 되었습니다.
+다른 분들도 사계절이 아름다운 김삿갓 계곡을 즐겼으면 하는 마음에, 누구나 자연 속에서 편히 쉬고 재충전 할 수 있는 스테이 하우스를 짓게 되었습니다.
+
+저희 집은 영월에서 쉽게 찾을 수 없는 커플 펜션으로 부부 또는 연인과 함께 오시면 공간을 프라이빗하고 편하게 사용하실 수 있습니다.^^
+저희는 늘 정원의 예쁜 꽃들과 나무들을 가꾸며 일상을 분주하게 보내고 있어요.
+아름다운 자연 속에서 편히 쉬기 위해 영월을 찾았다가, 지금은 오히려 일이 늘었지만 게스트분들과 소통하며 행복하게 지내고 있습니다~^^
+
+집을 처음 짓고 바로 에어비앤비를 통해 소개하게 되어 진심으로 기쁘고,
+앞으로도 더욱 많은 분들께 행복한 시간을 선물해드리도록 언제나 노력하겠습니다!
+
+저희는 다양한 게스트 분들과의 만남을 좋아합니다.
+어디에서 오시든 저희 집을 편안하게 이용하셨으면 좋겠어요!
+문의사항 있으시면 언제든 연락주세요. ^^
+
+감사합니다.
+
+스테이하우스 호스트 올림`
+expl.host_to_geust = `저희 스테이 하우스를 찾아주시는 에어비앤비 게스트 분들이 편안한 시간을 보내실 수 있도록 하겠습니다.^^
+`
 let average = {
 	clean : 0,
 	precision : 0,
@@ -130,7 +154,6 @@ expl.review_list.map(re => (
 			average[key] += re.rate[key];
 	})
 ));
-// console.log(average);
 average.total += average.clean + average.precision + average.comunication + average.location + average.checkin + average.price;
 average.total /= (6*expl.review_list.length);
 

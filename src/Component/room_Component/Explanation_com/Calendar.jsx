@@ -19,16 +19,8 @@ const CalSlider = styled.div`
 	width: 100%;
 	white-space: nowrap;
 	overflow: hidden;
+	
 `
-let now = new Date();
-const week = ["일", "월", "화", "수" , "목", "금", "토"];
-let date = {
-	year : now.getFullYear(),
-	month : now.getMonth() + 1,
-	day : now.getDate(),
-	week : week[now.getDay()],
-}
-
 const	RightBtn = styled.button`
 	position: absolute;
 	right: 0;
@@ -47,24 +39,27 @@ const	LeftBtn = styled.button`
 `
 const Calendar = () => {
 	const [trans, setTrans] = useState(0);
+
 	const onClickRight = () => setTrans(trans + 100);
+
 	const onClickLeft = () => {
 		if (trans >= 100)
 			setTrans(trans - 100);
 	};
+
 	const CalTableList = monList.map((table) => (
-		<div style={{ width: "50%", padding: "0 13px", display: "inline-block", boxSizing: "border-box", transform: `translate(-${trans}%, 0)` }}>
+		<div style={{ width: "50%", padding: "0 13px", display: "inline-block", boxSizing: "border-box", transform: `translate(-${trans}%, 0)`, transition: "0.2s ease" }}>
 			<CalMon>
 				{table.year}년 {table.month}월
 			</CalMon>
-			<CalDayTable dayList={table.dayList} />
+			<CalDayTable date={table} />
 		</div>
 	));
 
 	return (
 		<div style={{position: "relative", width: "100%"}}>
 			<div style={{textAlign: "center", width: "100%"}}>
-				<CalSlider trans = {trans}>
+				<CalSlider>
 					{CalTableList}
 				</CalSlider>
 			</div>
