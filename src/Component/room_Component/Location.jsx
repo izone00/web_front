@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 import expl from "../dummy";
-import { SubTitle, MoreBtn } from "../util";
+import { SubTitle, MoreBtn } from "./util";
 import { ArrowSvg } from "../svg";
 
 const LocaTitle = styled.div`

@@ -22,7 +22,6 @@ body {
 	height: inherit;
 				font-size: 30px;
 				white-space: nowrap;
-				/* overflow: auto; */
 				overflow-x: hidden;
 }
 .theme_icon_box {
@@ -59,19 +58,18 @@ body {
 	height: 78px;
 	padding: 0 80px 0 80px;
 }
-#nav_right {
+/* #nav_right {
 	position: absolute;
 	right: 184px;
 	height: inherit;
 	box-shadow: -20px 0 15px white;
 }
 #nav_left {
-	visibility: hidden;
 	position: absolute;
 	left: 80px;
 	height: inherit;
 	box-shadow: 20px 0 15px white;
-}
+} */
 .theme_btn_container {
 	height: inherit;
 	display: flex;
@@ -87,10 +85,8 @@ body {
 	border-radius: 50%;
 	border: 1px solid #B0B0B0;
 }
-#theme_right_btn {
 
-}
-#filter_container {
+/* #filter_container {
 	position: absolute;
 	right: 0;
 	display: flex;
@@ -112,7 +108,7 @@ body {
 	border: 1px solid #DDDDDD;
 	font-weight: 600;
 	font-size: 12px;
-}
+} */
 
 /* #main_container {
 	

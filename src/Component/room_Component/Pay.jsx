@@ -9,7 +9,7 @@ const PayCon = styled.div`
 	width: 70%;
 	border: 1px solid #DDDDDD;
 	border-radius: 12px;
-	margin-top: 48px;
+	margin: 48px 0;
 	padding: 24px;
 `
 const PayText = styled.div`

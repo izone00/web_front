@@ -1,9 +1,8 @@
 import styled, {css} from "styled-components";
 import expl from "../dummy";
-import { SubTitle } from "../util";
+import { SubTitle, BigBtn } from "./util";
 import { StarSvg } from "../svg";
 import { average } from "../dummy";
-import { BigBtn } from "../util";
 
 const ReviewRateCon = styled.div`
 	display: flex;

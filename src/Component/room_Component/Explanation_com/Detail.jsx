@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 import expl from "../../dummy";
-import { MoreBtn } from "../../util";
+import { MoreBtn } from "../util";
 import { ArrowSvg } from "../../svg";
 
 const DetailText = styled.div`

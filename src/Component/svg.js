@@ -70,4 +70,9 @@ const XSvg = () => {
 		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: "16px", width: "16px", stroke: "currentcolor", strokeWidth: "3", overflow: "visible"}}><path d="m6 6 20 20"></path><path d="m26 6-20 20"></path></svg>
 	)
 }
-export {LogoSvg, SearchSvg, EarthSvg, MenuSvg, LoginSvg, StarSvg, NoteSvg, ArrowSvg, FacSvg, XSvg};
+const AlertSvg = () => {
+	return (
+		<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-label="오류 표시기" role="img" focusable="false" style={{display: "block", height: "16px", width: "16px", fill: "currentcolor"}}><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zm0 10.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm.8-6.6H7.2v5.2h1.6z"></path></svg>
+	)
+}
+export {LogoSvg, SearchSvg, EarthSvg, MenuSvg, LoginSvg, StarSvg, NoteSvg, ArrowSvg, FacSvg, XSvg, AlertSvg};

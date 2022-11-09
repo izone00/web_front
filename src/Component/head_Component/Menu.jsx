@@ -1,8 +1,8 @@
-import {EarthSvg, MenuSvg, LoginSvg} from "./svg.js"
+import {EarthSvg, MenuSvg, LoginSvg} from "../svg.js"
+import Sign from "../SignComponent/Sign.jsx";
 import React, { useState, useEffect, useRef } from "react"
 import styled, {css} from "styled-components";
 import { Link } from "react-router-dom"
-import Sign from "./SignComponent/Sign.jsx";
 
 const MenuListCon = styled.div`
 	position: absolute;

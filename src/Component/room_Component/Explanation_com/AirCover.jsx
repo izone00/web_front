@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import { MoreBtn } from "../../util";
+import { MoreBtn } from "../util";
 import expl from "../../dummy";
 
 const AirBox = styled.div`

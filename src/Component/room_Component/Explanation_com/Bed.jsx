@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import { SubTitle } from "../../util";
+import { SubTitle } from "../util";
 
 const Bed = () => {
 	

@@ -1,4 +1,4 @@
-import { SearchSvg } from "./svg";
+import { SearchSvg } from "../svg";
 import React, {useState} from "react"
 import styled, {css} from "styled-components"
 

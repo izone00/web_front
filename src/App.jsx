@@ -1,17 +1,19 @@
 import { Fragment } from "react";
-import Header from "./Component/Header"
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Room from './Component/room_Component/Room';
+import Home from "./Component/home_Component/Home";
 
 function App() {
+
   return (
-    <Fragment>
-      <Header />
-      {/* <Nav /> */}
-      {/* <Main /> */}
-      {/* <Footer /> */}
-    </Fragment>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/rooms" element={<Room />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 
 

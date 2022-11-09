@@ -1,4 +1,4 @@
-import { LogoSvg } from "./svg";
+import { LogoSvg } from "../svg";
 
 const Logo = () => {
 	return (

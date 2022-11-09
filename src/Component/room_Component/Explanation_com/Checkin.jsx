@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import { SubTitle } from "../../util";
+import { SubTitle } from "../util";
 import expl from "../../dummy";
 import Calendar from "./Calendar";
 

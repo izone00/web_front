@@ -1,8 +1,8 @@
 import styled, {css} from "styled-components";
-import { SubTitle } from "../../util";
+import { SubTitle } from "../util";
 import { FacSvg } from "../../svg";
 import expl from "../../dummy";
-import { BigBtn } from "../../util";
+import { BigBtn } from "../util";
 
 const FacBox = styled.div`
 	display: flex;
