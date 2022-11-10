@@ -11,7 +11,7 @@ const Checkin = () => {
 			<div style={{paddingTop: "8px", fontSize: "14px" , color: "#717171"}}>
 				최소 숙박 일수: {expl.min_day}박
 			</div>
-			<div style={{width: "100%", backgroundColor: "red"}}>
+			<div style={{width: "100%"}}>
 				<Calendar />
 			</div>
 		</div>

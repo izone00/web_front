@@ -83,6 +83,7 @@ const ReviewTextList = expl.review_list.map((review) => (
 			</ReviewTextText>
 		</div>
 ));
+
 const Review = () => {
 	
 	return (

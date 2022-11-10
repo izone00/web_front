@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 import expl from "../dummy";
-import { SubTitle, MoreBtn, BigBtn } from "../util";
+import { SubTitle, MoreBtn, BigBtn } from "./util";
 import { StarSvg } from "../svg";
 
 const HostWrap = styled.div`

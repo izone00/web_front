@@ -37,8 +37,17 @@ const	LeftBtn = styled.button`
 	margin-left: 13px;
 	cursor: pointer;
 `
+const DelBtn = styled.button`
+	position: absolute;
+	right: 0;
+	bottom: 0;
+`
 const Calendar = () => {
 	const [trans, setTrans] = useState(0);
+	const [checkinDay, setCheckinDay] = useState(false);
+	const [checkoutDay, setCheckoutDay] = useState(false);
+	const [maxDate, setMaxdate] = useState(false);
+	const [hoverDate, setHoverDate] = useState(false);
 
 	const onClickRight = () => setTrans(trans + 100);
 
@@ -46,13 +55,19 @@ const Calendar = () => {
 		if (trans >= 100)
 			setTrans(trans - 100);
 	};
+	const initClick = () => {
+		setCheckinDay(false);
+		setCheckoutDay(false);
+		setMaxdate(false);
+		setHoverDate(false);
+	};
 
 	const CalTableList = monList.map((table) => (
 		<div style={{ width: "50%", padding: "0 13px", display: "inline-block", boxSizing: "border-box", transform: `translate(-${trans}%, 0)`, transition: "0.2s ease" }}>
 			<CalMon>
 				{table.year}년 {table.month}월
 			</CalMon>
-			<CalDayTable date={table} />
+			<CalDayTable date={table} checkinDay={checkinDay} setCheckinDay={setCheckinDay} maxDate={maxDate} setMaxdate={setMaxdate} hoverDate={hoverDate} setHoverDate={setHoverDate} checkoutDay={checkoutDay} setCheckoutDay={setCheckoutDay}/>
 		</div>
 	));
 
@@ -69,6 +84,9 @@ const Calendar = () => {
 			<RightBtn onClick={onClickRight}>
 				다음
 			</RightBtn>
+			<DelBtn onClick={initClick}>
+				날짜 지우기
+			</DelBtn>
 		</div>
 	);
 };
