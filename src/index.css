@@ -6,14 +6,14 @@ body {
 
 #nav_container {
 	/* border: 1px solid black; */
-	position: fixed;
+	/* position: fixed;
 	top: 80px;
 	left: 0;
 	right: 0;
 	width: 100%;
 	padding-top: 20px;
 	height: 78px;
-	background-color: white;
+	background-color: white; */
 }
 #theme_icon_container {
 	position: absolute;

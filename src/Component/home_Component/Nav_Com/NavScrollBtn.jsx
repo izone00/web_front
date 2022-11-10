@@ -3,13 +3,13 @@ import { LeftSvg, RightSvg } from "./NavSvg";
 
 const RightBtnWrap = styled.div`
 	position: absolute;
-	right: 184px;
+	right: 0;
 	height: inherit;
 	box-shadow: -20px 0 15px white;
 `
 const LeftBtnWrap = styled.div`
 	position: absolute;
-	left: 80px;
+	left: 0;
 	height: inherit;
 	box-shadow: 20px 0 15px white;
 `

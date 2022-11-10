@@ -2,12 +2,11 @@ import styled, {css} from "styled-components";
 import { FilterSvg } from "./NavSvg";
 
 const FilterWrap = styled.div`
-	position: absolute;
-	right: 0;
+	/* position: absolute;
+	right: 0; */
 	display: flex;
 	align-items: center;
-	height: inherit;
-	padding-right: 80px;
+	/* padding-right: 80px; */
 	background-color: white;
 `
 const FilterBox = styled.div`
