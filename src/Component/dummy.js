@@ -17,7 +17,7 @@ const expl = {
 	},
 	detail_text : "",
 	fac : [],
-	min_day : 2,
+	min_day : 1,
 	review_list : [],
 };
 class review_rate {

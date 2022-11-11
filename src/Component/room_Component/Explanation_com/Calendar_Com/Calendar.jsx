@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
-import CalDayTable from "./Date/CalDayTable";
-import monList from "./Date/monthList";
+import CalDayTable from "./CalDayTable";
+import monList from "./monthList";
 import { useState } from 'react';
 
 const CalCon = styled.div`
@@ -19,7 +19,6 @@ const CalSlider = styled.div`
 	width: 100%;
 	white-space: nowrap;
 	overflow: hidden;
-	
 `
 const	RightBtn = styled.button`
 	position: absolute;

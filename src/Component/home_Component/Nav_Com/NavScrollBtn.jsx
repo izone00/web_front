@@ -6,12 +6,14 @@ const RightBtnWrap = styled.div`
 	right: 0;
 	height: inherit;
 	box-shadow: -20px 0 15px white;
+	transform: translate(0,-50%);
 `
 const LeftBtnWrap = styled.div`
 	position: absolute;
 	left: 0;
 	height: inherit;
 	box-shadow: 20px 0 15px white;
+	transform: translate(0,-50%);
 `
 const NavBtnbox = styled.div`
 	height: inherit;
@@ -28,31 +30,34 @@ const NavBtn = styled.button`
 	border-radius: 50%;
 	border: 1px solid #B0B0B0;
 `
-const NavRightBtn = () => {
+const NavRightBtn = (props) => {
+
+	const scrollRight = () => {
+		props.navRef.current.scrollLeft += props.navWidth/2;
+	}
 
 	return (
 		<RightBtnWrap>
 			<NavBtnbox>
-				<NavBtn>
+				<NavBtn onClick={scrollRight}>
 					<RightSvg />
 				</NavBtn>
 			</NavBtnbox>
 		</RightBtnWrap>
-		// <div id="nav_right">
-		// 	<div className="theme_btn_container">
-		// 		<button className="theme_btn" id="theme_right_btn">
-
-		// 		</button>
-		// 	</div>
-		// </div>
 	);
 };
-const NavLeftBtn = () => {
+const NavLeftBtn = (props) => {
+
+	const scrollLeft = () => {
+		props.navRef.current.scrollLeft -= props.navWidth/2;
+		props.navRef.current.scrollLeft += props.navWidth/2;
+		props.navRef.current.scrollLeft -= props.navWidth/2;
+	}
 
 	return (
 		<LeftBtnWrap>
 			<NavBtnbox>
-				<NavBtn>
+				<NavBtn onClick={scrollLeft}>
 					<LeftSvg />
 				</NavBtn>
 			</NavBtnbox>
