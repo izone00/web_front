@@ -1,4 +1,7 @@
 import styled, {css} from "styled-components";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { RightSvg, LeftSvg } from "../Nav_Com/NavSvg";
 
 const HomeMainGrid = styled.div`
 	display: grid;
@@ -16,9 +19,9 @@ const HomeContentWrap = styled.div`
 `
 const HomeContentImgWrap = styled.div`
 	position: relative;
-	/* width: 100%; */
 	margin-bottom: 12px;
 	background-color: skyblue;
+	overflow: hidden;
 
 	&:after {
 		content: "";
@@ -28,11 +31,14 @@ const HomeContentImgWrap = styled.div`
 `
 const ContentImg = styled.img`
 	position: absolute;
+	left: ${props => props.num*100}%;
 	border-radius: 5%;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	z-index: 1;
+	display: "inline-block";
+	transition: 0.5s ease;
 `
 const ContentImgOptWrap = styled.div`
 	position: absolute;
@@ -63,28 +69,52 @@ const ContentBarWrap = styled.div`
 	height: 100%;
 	z-index: 3;
 `
-const ContenImgBtn = styled.button`
-	height: 20px;
+const ContentImgBtn = styled.button`
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 32px;
+	height: 32px;
+	border-radius: 32px;
+	border-style: none;
 	z-index: 3;
-`
-const HomeMain = () => {
+	transform: scale(0.95);
+	opacity: 0.9;
 
-	// <img src="https://a0.muscache.com/im/pictures/miso/Hosting-45760329/original/c2153623-4ce3-4fcb-a099-b7a99b31b148.jpeg?im_w=720" alt=""></img>
+	&:hover {
+		transform: scale(1);
+		opacity: 1;
+		box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
+	}
+	transition: 0.2s ease;
+`
+
+const HomeContent = () => {
+	
+	const [imgNum, setImgNum] = useState(0);
+	
 	return (
-		<HomeMainGrid>
-			<HomeContentWrap>
+		
+		<HomeContentWrap>
+			<Link to="./rooms" style={{ textDecoration: "none" }}>
 				<HomeContentImgWrap>
-					<ContentImg className="content_img" src="https://a0.muscache.com/im/pictures/miso/Hosting-45760329/original/c2153623-4ce3-4fcb-a099-b7a99b31b148.jpeg?im_w=720" alt=""></ContentImg>
+					<ContentImg num={0 - imgNum} src="https://a0.muscache.com/im/pictures/miso/Hosting-45760329/original/c2153623-4ce3-4fcb-a099-b7a99b31b148.jpeg?im_w=720" alt=""></ContentImg>
+					<ContentImg num={1 - imgNum} src="https://a0.muscache.com/im/pictures/a7de733b-47fd-4dcc-954f-5a79f8525134.jpg?im_w=720" alt=""></ContentImg>
 					<ContentImgOptWrap>
 						<ContentHeartWrap>
 							1
 						</ContentHeartWrap>
 						<ContentBtnWrap>
-							<ContenImgBtn>다음</ContenImgBtn>
-							<ContenImgBtn>이전</ContenImgBtn>
+							<ContentImgBtn onClick={(e) => { e.preventDefault(); setImgNum(imgNum - 1); }}>
+								<LeftSvg />
+							</ContentImgBtn>
+							<ContentImgBtn onClick={(e) => { e.preventDefault(); setImgNum(imgNum + 1); }}>
+								<RightSvg />
+							</ContentImgBtn>
 						</ContentBtnWrap>
 						<ContentBarWrap>
-							점점점
+							<div></div>
 						</ContentBarWrap>
 					</ContentImgOptWrap>
 				</HomeContentImgWrap>
@@ -97,7 +127,20 @@ const HomeMain = () => {
 					<div class="text_item text_date">11월 6일~11일</div>
 					<div class="text_item text_price"><span class="text_price_num">\6,417,466</span> /박</div>
 				</div>
-			</HomeContentWrap>
+			</Link>
+		</HomeContentWrap>
+	);
+};
+
+const HomeMain = () => {	
+
+	let contentList = [];
+	for (let i = 0; i < 10; i++) {
+		contentList.push(<HomeContent />);
+	}
+	return (
+		<HomeMainGrid>
+			{contentList}
 		</HomeMainGrid>
 	);
 };

@@ -55,10 +55,15 @@ const NoteSvg = (props) => {
 		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", height: "24px", width: "24px", fill: "currentcolor"}}><path d={props.icon}></path></svg>
 	)
 };
-const ArrowSvg = () => {
+const RightSvg = () => {
 	return (
 		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: "12px", width: "12px", stroke: "currentcolor", strokeWidth: "5.33333", overflow: "visible"}}><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg>
 	)
+};
+const LeftSvg = () => {
+	return (
+		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" ariaHidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: "12px", width: "12px", stroke: "currentcolor", strokeWidth: "4", overflow: "visible"}}><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg>
+	);
 };
 const FacSvg = (props) => {
 	return (
@@ -75,4 +80,4 @@ const AlertSvg = () => {
 		<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-label="오류 표시기" role="img" focusable="false" style={{display: "block", height: "16px", width: "16px", fill: "currentcolor"}}><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zm0 10.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm.8-6.6H7.2v5.2h1.6z"></path></svg>
 	)
 }
-export {LogoSvg, SearchSvg, EarthSvg, MenuSvg, LoginSvg, StarSvg, NoteSvg, ArrowSvg, FacSvg, XSvg, AlertSvg};
+export {LogoSvg, SearchSvg, EarthSvg, MenuSvg, LoginSvg, StarSvg, NoteSvg, RightSvg, LeftSvg, FacSvg, XSvg, AlertSvg};

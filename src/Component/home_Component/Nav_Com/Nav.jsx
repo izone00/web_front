@@ -16,6 +16,7 @@ const NavWrap = styled.div`
 	height: 98px;
 	/* background-color: white; */
 	background-color: #dddddd;
+	z-index: 5;
 `
 const NavImgWrap = styled.div`
 	position: relative;

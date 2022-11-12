@@ -14,17 +14,19 @@ const HeaderBar = styled.header`
 	border-bottom: 1px solid #EBEBEB;
 	background-color: white;
 	padding: 0 80px;
+	z-index: 4;
 	${props =>
-		props.site === "main" &&
-		css`
-			position: fixed;
-		`}
+	props.site === "home" &&
+	css`
+		position: sticky;
+	`}
 `
 
-const Header = () => {
+const Header = (props) => {
+
 
 	return (
-		<HeaderBar>
+		<HeaderBar site={props.site}>
 			<Logo />
 			<Search />
 			<Menu />

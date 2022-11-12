@@ -11,7 +11,7 @@ import Precautions from "./Precautions";
 function Room() {
   return (
       <Fragment>
-        <Header />
+        <Header site="room"/>
         <Title />
         <Img />
         <Main />
@@ -22,7 +22,5 @@ function Room() {
       </Fragment>
   );
 };
-
-
 
 export default Room;

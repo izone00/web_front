@@ -6,7 +6,7 @@ import HomeMain from "./MomeMain_Com/HomeMain";
 const Home = () => {
   return (
       <Fragment>
-        <Header />
+        <Header site="home"/>
 				<Nav />
         <HomeMain />
       </Fragment>

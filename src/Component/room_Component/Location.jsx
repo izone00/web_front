@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 import expl from "../dummy";
 import { SubTitle, MoreBtn } from "./util";
-import { ArrowSvg } from "../svg";
+import { RightSvg } from "../svg";
 
 const LocaTitle = styled.div`
 	margin-bottom: 16px;
@@ -36,7 +36,7 @@ const Location = () => {
 						<div style={{display: "flex", flexDirection: "row", alignItems: "center", marginTop: "16px"}}>
 							더보기
 							<div style={{marginLeft: "4px"}}>
-								<ArrowSvg />
+								<RightSvg />
 							</div>
 						</div>
 					</MoreBtn>

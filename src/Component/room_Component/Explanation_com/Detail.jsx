@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 import expl from "../../dummy";
 import { MoreBtn } from "../util";
-import { ArrowSvg } from "../../svg";
+import { RightSvg } from "../../svg";
 
 const DetailText = styled.div`
 	width: 100%;
@@ -28,7 +28,7 @@ const Detail = () => {
 					<div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
 						더 보기
 						<div style={{marginLeft: "4px"}}>
-							<ArrowSvg />
+							<RightSvg />
 						</div>
 					</div>
 				</MoreBtn>
