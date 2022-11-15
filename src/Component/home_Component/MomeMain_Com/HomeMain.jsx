@@ -15,12 +15,11 @@ const HomeMainGrid = styled.div`
 	padding: 0 80px;
 `
 const HomeContentWrap = styled.div`
-	
+
 `
 const HomeContentImgWrap = styled.div`
 	position: relative;
 	margin-bottom: 12px;
-	background-color: skyblue;
 	overflow: hidden;
 
 	&:after {
@@ -80,23 +79,29 @@ const ContentImgBtn = styled.button`
 	border-style: none;
 	z-index: 3;
 	transform: scale(0.95);
-	opacity: 0.9;
+	opacity: 0;
 
+	
 	&:hover {
 		transform: scale(1);
 		opacity: 1;
 		box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
 	}
-	transition: 0.2s ease;
+	${props =>
+		props.show &&
+		css`
+			transition: 0.2s ease;
+			opacity: 0.9;
+		`}
 `
-
+ 
 const HomeContent = () => {
 	
 	const [imgNum, setImgNum] = useState(0);
+	const [showBtn, setShowBtn] = useState(false);
 	
 	return (
-		
-		<HomeContentWrap>
+		<HomeContentWrap onMouseOver={() => setShowBtn(true)} onMouseOut={() => setShowBtn(false)}>
 			<Link to="./rooms" style={{ textDecoration: "none" }}>
 				<HomeContentImgWrap>
 					<ContentImg num={0 - imgNum} src="https://a0.muscache.com/im/pictures/miso/Hosting-45760329/original/c2153623-4ce3-4fcb-a099-b7a99b31b148.jpeg?im_w=720" alt=""></ContentImg>
@@ -106,10 +111,10 @@ const HomeContent = () => {
 							1
 						</ContentHeartWrap>
 						<ContentBtnWrap>
-							<ContentImgBtn onClick={(e) => { e.preventDefault(); setImgNum(imgNum - 1); }}>
+							<ContentImgBtn show={showBtn} onClick={(e) => { e.preventDefault(); setImgNum(imgNum - 1); }}>
 								<LeftSvg />
 							</ContentImgBtn>
-							<ContentImgBtn onClick={(e) => { e.preventDefault(); setImgNum(imgNum + 1); }}>
+							<ContentImgBtn show={showBtn} onClick={(e) => { e.preventDefault(); setImgNum(imgNum + 1); }}>
 								<RightSvg />
 							</ContentImgBtn>
 						</ContentBtnWrap>

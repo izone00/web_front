@@ -14,7 +14,7 @@ const HeaderBar = styled.header`
 	border-bottom: 1px solid #EBEBEB;
 	background-color: white;
 	padding: 0 80px;
-	z-index: 4;
+	z-index: 6;
 	${props =>
 	props.site === "home" &&
 	css`
