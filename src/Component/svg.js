@@ -80,4 +80,9 @@ const AlertSvg = () => {
 		<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-label="오류 표시기" role="img" focusable="false" style={{display: "block", height: "16px", width: "16px", fill: "currentcolor"}}><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zm0 10.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm.8-6.6H7.2v5.2h1.6z"></path></svg>
 	)
 }
-export {LogoSvg, SearchSvg, EarthSvg, MenuSvg, LoginSvg, StarSvg, NoteSvg, RightSvg, LeftSvg, FacSvg, XSvg, AlertSvg};
+const MapSvg = () => {
+	return (
+		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" ariaHidden="true" role="presentation" focusable="false" style={{display: "block", height: "16px", width: "16px", fill: "rgb(255, 255, 255)"}}><path d="M31.245 3.747a2.285 2.285 0 0 0-1.01-1.44A2.286 2.286 0 0 0 28.501 2l-7.515 1.67-10-2L2.5 3.557A2.286 2.286 0 0 0 .7 5.802v21.95a2.284 2.284 0 0 0 1.065 1.941A2.29 2.29 0 0 0 3.498 30l7.515-1.67 10 2 8.484-1.886a2.285 2.285 0 0 0 1.802-2.245V4.247a2.3 2.3 0 0 0-.055-.5zM12.5 25.975l-1.514-.303L9.508 26H9.5V4.665l1.514-.336 1.486.297v21.349zm10 1.36l-1.515.337-1.485-.297V6.025l1.514.304L22.493 6h.007v21.335z"></path></svg>
+	)
+}
+export {LogoSvg, SearchSvg, EarthSvg, MenuSvg, LoginSvg, StarSvg, NoteSvg, RightSvg, LeftSvg, FacSvg, XSvg, AlertSvg, MapSvg};
