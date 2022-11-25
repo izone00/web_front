@@ -1,4 +1,4 @@
-
+import { bookList } from "./book";
 const week = ["일", "월", "화", "수" , "목", "금", "토"];
 const monthLen = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 let now = new Date();
@@ -10,31 +10,50 @@ let today = {
 };
 
 class monthForm {
-	constructor(startday, month, year, dayList){
-		this.startday = startday;
-		this.month = month;
+	constructor(year, month, dayTable){
 		this.year = year;
-		this.dayList = dayList;
+		this.month = month;
+		this.dayTable = dayTable;
 	};
 };
 
-const makeDayList = (startday, month) => {
-	let daylist = [];
+const datecmp = (date1, date2) => {
+	const spl1 = date1.split('.');
+	const spl2 = date2.split('.');
+	for (let i = 0; i < 3; i++) {
+		if ((Number)(spl1[i]) < (Number)(spl2[i]))
+			return (true);
+		else if ((Number)(spl1[i]) > (Number)(spl2[i]))
+			return (false);
+	}
+	return (true);
+}
 
-	daylist[0] = [];
+const isBooked = (date) => {
+	return bookList.some(({ checkin, checkout }) =>
+		(datecmp(checkin, date) && datecmp(date, checkout))
+	);
+}
+
+const makeDayTable = (startday, month, year) => {
+	let dayTable = [];
+	dayTable[0] = [];
 	for (let d = 0, w = 0; true; d++) {
 		if ((d >= startday) && (d + 1 - startday <= monthLen[month]))
-			daylist[w][d % 7] = (d + 1 - startday);
+			dayTable[w][d % 7] = {
+				date: `${year}.${month}.${d + 1 - startday}`,
+				booked: isBooked(`${year}.${month}.${d + 1 - startday}`)
+			};
 		else
-			daylist[w][d % 7] = "";
+			dayTable[w][d % 7] = {date: "", booked: true};
 		if (d % 7 == 6) {
-			if (daylist[w][d % 7] === "")
+			if (dayTable[w][d % 7].date === "")
 				break;
 			w += 1;
-			daylist[w] = [];
+			dayTable[w] = [];
 		}
 	}
-	return (daylist);
+	return (dayTable);
 }
 
 let monList = [];
@@ -44,27 +63,24 @@ if (startday < 0)
 let month = today.month;
 let year = today.year;
 monList[0] = new monthForm(
-	startday,
-	month,
 	year,
-	makeDayList(startday, today.month)
+	month,
+	makeDayTable(startday, today.month, today.year)
 );
 
-
-for (let i = 1 ; i < 12; i++) {
-	startday = monList[i-1].dayList.at(-1).findIndex(day => day === "");
+for (let i = 1; i < 12; i++) {
+	startday = monList[i - 1].dayTable.at(-1).findIndex(day => day.date === "");
 	month += 1;
 	if (month === 13) {
 		month = 1;
 		year += 1;
 	}
 	monList[i] = new monthForm(
-		startday,
-		month,
 		year,
-		makeDayList(startday, month)
-		);
+		month,
+		makeDayTable(startday, month, year)
+	);
 }
 
+console.log(monList);
 export default monList;
-export {today};

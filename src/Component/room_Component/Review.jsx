@@ -31,16 +31,16 @@ let ReviewRateList = [];
 Object.keys(average).forEach((key) => {
 	if (key != "total") {
 		ReviewRateList.push(
-			<ReviewRateBox>
+			<ReviewRateBox key={key}>
 				<div>
 					{key}
 				</div>
-				<div style={{display: "flex", flexDirection: "row", alignItems: "center", marginRight: "15%"}}>
-					<div style={{backgroundColor: "#DDDDDD", borderRadius: "2px", marginRight: "4px", width: "100px"}}>
-						<ReviewRate rate = {(average[key]*20/expl.review_list.length).toFixed(1)+"%"}/>
+				<div style={{ display: "flex", flexDirection: "row", alignItems: "center", marginRight: "15%" }}>
+					<div style={{ backgroundColor: "#DDDDDD", borderRadius: "2px", marginRight: "4px", width: "100px" }}>
+						<ReviewRate rate={(average[key] * 20 / expl.review_list.length).toFixed(1) + "%"} />
 					</div>
-					<div style={{fontSize: "12px", fontWeight: "600"}}>
-						{(average[key]/expl.review_list.length).toFixed(1)}
+					<div style={{ fontSize: "12px", fontWeight: "600" }}>
+						{(average[key] / expl.review_list.length).toFixed(1)}
 					</div>
 				</div>
 			</ReviewRateBox>
@@ -63,25 +63,25 @@ const ReviewTextText = styled.div`
 	line-height: 24px;
 `
 
-const ReviewTextList = expl.review_list.map((review) => (
-		<div style={{ width: "50%", marginBottom: "40px", boxSizing: "border-box"}}>
-			<div style={{ display: "flex", flexDirection: "row", marginBottom: "16px" }}>
-				<div style={{ width: "40px", height: "40px" }}>
-					<img src={review.icon} alt="img1" style={{ width: "100%", height: "100%" }} />
+const ReviewTextList = expl.review_list.slice(0, 6).map((review) => (
+	<div key={review.name} style={{ width: "50%", marginBottom: "40px", boxSizing: "border-box" }}>
+		<div style={{ display: "flex", flexDirection: "row", marginBottom: "16px" }}>
+			<div style={{ width: "40px", height: "40px" }}>
+				<img src={review.icon} alt="img1" style={{ width: "100%", height: "100%" }} />
+			</div>
+			<div style={{ display: "flex", flexDirection: "column", marginLeft: "12px" }}>
+				<div style={{ fontWeight: "600", lineHeight: "20px" }}>
+					{review.name}
 				</div>
-				<div style={{ display: "flex", flexDirection: "column", marginLeft: "12px" }}>
-					<div style={{ fontWeight: "600", lineHeight: "20px" }}>
-						{review.name}
-					</div>
-					<div style={{ fontSize: "14px", lineHeight: "20px", color: "#717171" }}>
-						{review.date}
-					</div>
+				<div style={{ fontSize: "14px", lineHeight: "20px", color: "#717171" }}>
+					{review.date}
 				</div>
 			</div>
-			<ReviewTextText>
-				{review.text}
-			</ReviewTextText>
 		</div>
+		<ReviewTextText>
+			{review.text}
+		</ReviewTextText>
+	</div>
 ));
 
 const Review = () => {

@@ -8,8 +8,8 @@ const FacBox = styled.div`
 	display: flex;
 	flex-direction: row;
 `
-const FacList = expl.fac.map( facil => (
-	<FacBox>
+const FacList = expl.fac.map( (facil) => (
+	<FacBox key={facil.text}>
 			<div style={{marginRight: "16px", paddingBottom: "16px"}}><FacSvg icon={facil.icon}/></div>
 			<div style={{paddingBottom: "16px"}}>{facil.text}</div>
 	</FacBox>

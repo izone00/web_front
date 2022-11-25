@@ -40,5 +40,5 @@ new thema_form("스키", "https://a0.muscache.com/pictures/c8bba3ed-34c0-464a-8e
 ]
 
 
-console.log(themaList);
+// console.log(themaList);
 export {themaList};

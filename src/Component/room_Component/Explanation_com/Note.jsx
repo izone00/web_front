@@ -20,7 +20,8 @@ const NoteText = styled.div`
 `
 
 const NoteList = expl.note_list.map(note => (
-	<NoteBox>
+
+	<NoteBox key={note.id}>
 		<div><NoteSvg icon={note.icon}/></div>
 		<div style={{display: "flex", flexDirection: "column", marginLeft: "16px"}}>
 			<NoteShort>

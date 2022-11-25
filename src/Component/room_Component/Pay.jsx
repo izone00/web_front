@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 import expl, {average} from "../dummy";
 import { StarSvg } from "../svg";
-import { Counter } from "../../features/Counter";
+import { Counter } from "../../features/counter/Counter";
 
 const PayCon = styled.div`
 	position: sticky;
