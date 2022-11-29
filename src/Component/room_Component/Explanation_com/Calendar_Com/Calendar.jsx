@@ -2,8 +2,7 @@ import styled, {css} from "styled-components";
 import { useState } from 'react';
 import CalDayTable from "./CalDayTable";
 import { CalClearBtn } from "../../../../features/booking/CalClearBtn";
-import { useSelector } from "react-redux";
-
+import { monList } from "./monthList";
 
 const CalCon = styled.div`
 	
@@ -43,12 +42,12 @@ const	LeftBtn = styled.button`
 
 const Calendar = () => {
 	const [trans, setTrans] = useState(0);
+	const [viewCal, setViewCal] = useState([{...monList[0]}, {...monList[1]}]);
 
 	const onClickRight = () => setTrans(trans + 100);
 	const onClickLeft = () => setTrans((trans >= 100) ? trans - 100 : 0);
 
-	const booking = useSelector(state => state.booking.calendar);
-	const CalTableList = booking.map((table) => (
+	const CalTableList = viewCal.map((table) => (
 		<div
 			style={{ width: "50%", padding: "0 13px", display: "inline-block", boxSizing: "border-box", transform: `translate(-${trans}%, 0)`, transition: "0.2s ease" }}
 		>

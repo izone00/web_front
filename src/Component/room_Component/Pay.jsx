@@ -1,7 +1,6 @@
 import styled, {css} from "styled-components";
 import expl, {average} from "../dummy";
 import { StarSvg } from "../svg";
-import { Counter } from "../../features/counter/Counter";
 
 const PayCon = styled.div`
 	position: sticky;
@@ -83,7 +82,6 @@ const Pay = () => {
 				<div style={{width: "100%", padding: "14px 12px 10px 12px"}}>
 					<PayFont>인원</PayFont>
 					게스트 명
-					<Counter />
 				</div>
 			</PayCheck>
 			<PayOK>

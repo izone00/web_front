@@ -8,16 +8,14 @@ const CaldayWrap = styled.td`
 	position: relative;
 	box-sizing: border-box;
 	background-color: inherit;
-	border: 1px solid white;
+	border: none;
 	padding: 0;
 	&:after {
 		content: "";
 		display: block;
 		padding-bottom: 100%;
 	}
-	&:hover {
 
-	}
 	/* ${props =>
 		props.hover &&
 		css`

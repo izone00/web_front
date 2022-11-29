@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
 	updateCheckin,
 	updateCheckout,
+	dateCmp,
 } from "../../features/booking/bookingSlice"
 
 
@@ -14,17 +15,17 @@ const CalDayBtn = styled.button`
 	top: 50%;
 	left: 0;
 	transform: translate(0,-50%);
-	border-style: none;
+	border: 1px solid white;
 	padding: 0;
 	font-weight: 600;
 	background-color: inherit;
-	/* &:hover {
+	&:hover {
 		border-radius: 50%;
-		border: 1px solid black;
-	} */
+		border: 1.5px solid black;
+	}
 
-	/* ${props =>
-		props.click &&
+	${props =>
+		props.clicked &&
 		css`
 			color: white;
 			background-color: #222222;
@@ -32,39 +33,48 @@ const CalDayBtn = styled.button`
 		`}
 		
 	${props =>
-		props.book && !props.click &&
+		props.between &&
 		css`
-			&:hover {
-				background-color: white;
-				border: 1px solid black;
-				border-radius: 50%;
-			}
+			/* background-color: red;
+			border-right-color: red;
+			border-left-color: red; */
+			background-color: #F7F7F7;
+			border-right-color: #F7F7F7;
+			border-left-color: #F7F7F7;
 		`}
 
 	${props =>
-		!props.book && 
+		props.disable && 
 		css`
 			font-weight: 400;
 			color: #B0B0B0;
 			text-decoration: line-through;
-		`} */
+			&:hover {
+				border-style: none;
+			}
+		`}
 `
 
 export const CalBookBtn = ({day}) => {
 	const booking = useSelector(state => state.booking);
 	const dispatch = useDispatch();
 
-	const clickDay = (day) => {
-		if (booking.checkin === "" || booking.checkout !== "") {
-			dispatch(updateCheckin(day));
+	const clickDay = (date) => {
+		if (!booking.checkinDate || booking.checkoutDate) {
+			dispatch(updateCheckin(date));
 			dispatch(updateCheckout(""));
 		 }
 		else
-			dispatch(updateCheckout(day));
+			dispatch(updateCheckout(date));
 	}
 
 	return (
-		<CalDayBtn onClick={() => clickDay(day)} >
+		<CalDayBtn
+			disable={day.booked || (!booking.checkoutDate  && booking.checkinDate && (dateCmp(day.date, booking.checkinDate) || dateCmp(booking.availableMaxDate, day.date)))}
+			clicked={day.date && (day.date === booking.checkinDate || day.date === booking.checkoutDate)}
+			between={day.date && booking.checkoutDate && (dateCmp(booking.checkinDate, day.date) && dateCmp(day.date, booking.checkoutDate))}
+			onClick={() => clickDay(day.date)}
+		>
 			{day.date.split('.')[2] || ""}
 		</CalDayBtn>
 	)
