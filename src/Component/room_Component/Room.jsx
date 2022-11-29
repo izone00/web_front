@@ -11,14 +11,16 @@ import Precautions from "./Precautions";
 function Room() {
   return (
       <Fragment>
-        <Header site="room"/>
-        <Title />
-        <Img />
-        <Main />
-        <Review />
-        <Location />
-        <Host />
-        <Precautions />
+        <div style={{width: "1280px", margin: "auto"}}>
+          <Header site="room"/>
+          <Title />
+          <Img />
+          <Main />
+          <Review />
+          <Location />
+          <Host />
+          <Precautions />
+        </div>
       </Fragment>
   );
 };

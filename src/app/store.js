@@ -4,7 +4,7 @@ import bookingReducer from "../features/booking/bookingSlice"
 
 export default configureStore({
 	reducer: {
-		counter: counterReducer,
+		// counter: counterReducer,
 		booking: bookingReducer
 	}
 });

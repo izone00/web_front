@@ -1,6 +1,7 @@
 import styled, {css} from "styled-components";
 import expl, {average} from "../dummy";
 import { StarSvg } from "../svg";
+import Calendar from "./Explanation_com/Calendar_Com/Calendar";
 
 const PayCon = styled.div`
 	position: sticky;
@@ -63,8 +64,10 @@ const Pay = () => {
 				</span>
 			</PayReview>
 			<PayCheck>
-				<div>
-					<div style={{display: "flex", flexDirection: "row", borderBottom: "1px solid #B0B0B0"}}>
+				{/* <div> */}
+					<div 
+						style={{display: "flex", flexDirection: "row", borderBottom: "1px solid #B0B0B0"}}
+					>
 						<div style={{width: "50%", padding: "14px 12px 10px 12px", borderRight: "1px solid #B0B0B0"}}>
 							<PayFont>체크인</PayFont>
 							<div style={{lineHeight: "18px", color: "#717171", lineHeight: "20px"}}>
@@ -77,7 +80,7 @@ const Pay = () => {
 								날짜 추가
 							</div>
 						</div>
-					</div>
+					{/* </div> */}
 				</div>
 				<div style={{width: "100%", padding: "14px 12px 10px 12px"}}>
 					<PayFont>인원</PayFont>

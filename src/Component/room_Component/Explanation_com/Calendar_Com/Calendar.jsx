@@ -38,11 +38,9 @@ const	LeftBtn = styled.button`
 	cursor: pointer;
 `
 
-
-
 const Calendar = () => {
 	const [trans, setTrans] = useState(0);
-	const [viewCal, setViewCal] = useState([{...monList[0]}, {...monList[1]}]);
+	const [viewCal, setViewCal] = useState([{...monList[0]}, {...monList[1]}, {...monList[2]}]);
 
 	const onClickRight = () => setTrans(trans + 100);
 	const onClickLeft = () => setTrans((trans >= 100) ? trans - 100 : 0);

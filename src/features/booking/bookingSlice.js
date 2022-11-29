@@ -5,7 +5,6 @@ const dateCmp = (date1, date2) => {
 	const spl1 = date1.split('.');
 	const spl2 = date2.split('.');
 
-	console.log(spl1, spl2);
 	for (let i = 0; i < 3; i++) {
 		if (Number(spl1[i]) < Number(spl2[i]))
 			return (true);
@@ -21,14 +20,19 @@ export const bookingSlice = createSlice({
 		checkinDate: "",
 		checkoutDate: "",
 		availableMaxDate: "9999.99.99",
+		hoverDate: "",
 	},
 	reducers: {
 		updateCheckin: (state, action) => {
 			state.checkinDate = action.payload;
-			state.availableMaxDate = bookList.find( book => dateCmp(action.payload, book.checkin)).checkin;
+			let finded = bookList.find( book => dateCmp(action.payload, book.checkin));
+			state.availableMaxDate = finded ? finded.checkin : "9999.99.99";
 		},
 		updateCheckout: (state, action) => {
 			state.checkoutDate = action.payload;
+		},
+		updateHoverDate: (state, action) => {
+			state.hoverDate = action.payload;
 		},
 		clearDate: state => {
 			state.checkinDate = "";
@@ -38,6 +42,6 @@ export const bookingSlice = createSlice({
 	}
 });
 
-export const { updateCheckin, updateCheckout, clearDate} = bookingSlice.actions;
+export const { updateCheckin, updateCheckout, updateHoverDate, clearDate} = bookingSlice.actions;
 export { dateCmp };
 export default bookingSlice.reducer;
