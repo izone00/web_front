@@ -1,7 +1,9 @@
 import styled, {css} from "styled-components";
+import { useState } from "react";
 import expl, {average} from "../dummy";
 import { StarSvg } from "../svg";
-import Calendar from "./Explanation_com/Calendar_Com/Calendar";
+import { PayCal } from "./PayCal";
+
 
 const PayCon = styled.div`
 	position: sticky;
@@ -19,11 +21,13 @@ const PayText = styled.div`
 	word-break: keep-all;
 `
 const PayReview = styled.div`
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	margin-top: 8px;
 	margin-bottom: 24px;
+	line-height: 18px;
 	font-size: 14px;
 	font-weight: 600;
 `
@@ -50,6 +54,8 @@ const PayOK = styled.button`
 	cursor: pointer;
 `
 const Pay = () => {
+
+	const [calOpen, setCalOpen] = useState(false);
 	
 	return (
 		<PayCon>
@@ -62,26 +68,28 @@ const Pay = () => {
 				<span style={{color: "#717171", textDecoration: "underline"}}>
 					&nbsp;후기 {expl.review_list.length}개
 				</span>
+					{calOpen && <PayCal />}
 			</PayReview>
 			<PayCheck>
 				{/* <div> */}
-					<div 
-						style={{display: "flex", flexDirection: "row", borderBottom: "1px solid #B0B0B0"}}
-					>
-						<div style={{width: "50%", padding: "14px 12px 10px 12px", borderRight: "1px solid #B0B0B0"}}>
-							<PayFont>체크인</PayFont>
-							<div style={{lineHeight: "18px", color: "#717171", lineHeight: "20px"}}>
-								날짜 추가
-							</div>
+				<div
+					style={{ display: "flex", flexDirection: "row", borderBottom: "1px solid #B0B0B0" }}
+					onClick={() => setCalOpen(true)}
+				>
+					<div style={{ width: "50%", padding: "14px 12px 10px 12px", borderRight: "1px solid #B0B0B0" }}>
+						<PayFont>체크인</PayFont>
+						<div style={{ lineHeight: "18px", color: "#717171", lineHeight: "20px" }}>
+							날짜 추가
 						</div>
-						<div style={{width: "50%", padding: "14px 12px 10px 12px"}}>
-							<PayFont>체크아웃</PayFont>
-							<div style={{lineHeight: "18px", color: "#717171", lineHeight: "20px"}}>
-								날짜 추가
-							</div>
+					</div>
+					<div style={{ width: "50%", padding: "14px 12px 10px 12px" }}>
+						<PayFont>체크아웃</PayFont>
+						<div style={{ lineHeight: "18px", color: "#717171", lineHeight: "20px" }}>
+							날짜 추가
 						</div>
-					{/* </div> */}
+					</div>
 				</div>
+				{/* </div> */}
 				<div style={{width: "100%", padding: "14px 12px 10px 12px"}}>
 					<PayFont>인원</PayFont>
 					게스트 명

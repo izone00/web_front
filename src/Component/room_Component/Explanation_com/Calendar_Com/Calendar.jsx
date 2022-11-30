@@ -21,6 +21,28 @@ const CalSlider = styled.div`
 	white-space: nowrap;
 	overflow: hidden;
 `
+const CalWrap = styled.div`
+	display: inline-block;
+	box-sizing: border-box;
+	width: 50%;
+	padding: 0 13px;
+	/* transition: 0.4s ease; */
+
+	/* ${props =>
+		props.trans &&
+		css`
+			@keyframes trans {
+				from {
+					transform: translate(0, 0);
+				}	
+
+				to {
+					transform: translate("-${props.trans}%", 0);
+				}
+			}
+			animation: shadowIn 0.4s ease forwards 		
+		`} */
+`
 const	RightBtn = styled.button`
 	position: absolute;
 	right: 0;
@@ -40,20 +62,21 @@ const	LeftBtn = styled.button`
 
 const Calendar = () => {
 	const [trans, setTrans] = useState(0);
-	const [viewCal, setViewCal] = useState([{...monList[0]}, {...monList[1]}, {...monList[2]}]);
+	const [viewCal, setViewCal] = useState([{...monList[0]}, {...monList[1]}]);
 
-	const onClickRight = () => setTrans(trans + 100);
+	const onClickRight = () => {
+		setViewCal([{...monList[0]}, {...monList[1]}, {...monList[2]}]);
+		setTrans(100);
+	}
 	const onClickLeft = () => setTrans((trans >= 100) ? trans - 100 : 0);
 
 	const CalTableList = viewCal.map((table) => (
-		<div
-			style={{ width: "50%", padding: "0 13px", display: "inline-block", boxSizing: "border-box", transform: `translate(-${trans}%, 0)`, transition: "0.2s ease" }}
-		>
+		<CalWrap trans={trans}>
 			<CalMon>
 				{table.year}년 {table.month}월
 			</CalMon>
 			<CalDayTable date={table} />
-		</div>
+		</CalWrap>
 	));
 
 	return (
