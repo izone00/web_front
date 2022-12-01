@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 import { useState } from 'react';
 import CalDayTable from "./CalDayTable";
-import { CalClearBtn } from "../../../../features/booking/CalClearBtn";
+import { CalClearBtn } from "../../../features/booking/CalClearBtn";
 import { monList } from "./monthList";
 
 const CalCon = styled.div`

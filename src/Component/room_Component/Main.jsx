@@ -1,6 +1,5 @@
-import styled, {css} from "styled-components";
 import Explanation from "./Explanation";
-import Pay from "./Pay";
+import { Pay } from "./Pay_com/Pay";
 
 const Main = () => {
 

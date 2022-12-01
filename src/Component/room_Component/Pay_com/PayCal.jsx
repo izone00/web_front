@@ -1,11 +1,12 @@
 import styled, {css} from "styled-components";
-import Calendar from "./Explanation_com/Calendar_Com/Calendar";
+import Calendar from "../Calendar_Com/Calendar";
 
 const PayCalWrap = styled.div`
 	position: absolute;
-	top: 18px;
+	box-sizing: border-box;
+	top: -24px;
 	right: -32px;
-	width: 500px;
+	width: 660px;
 	padding: 24px 32px 16px 32px;
 	background-color: white;
 

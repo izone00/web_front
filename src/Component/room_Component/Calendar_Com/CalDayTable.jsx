@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import { CalBookBtn } from "../../../../features/booking/CalBookBtn";
+import { CalBookBtn } from "../../../features/booking/CalBookBtn";
 
 const CalWeek = styled.div`
 	

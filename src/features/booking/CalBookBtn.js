@@ -39,7 +39,6 @@ const CaldayWrap = styled.td`
 			border-left-color: #F7F7F7;
 		`}
 `
-
 const CalDayBtn = styled.button`
 	cursor: pointer;
 	position: absolute;
