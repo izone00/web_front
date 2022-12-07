@@ -1,4 +1,5 @@
 import styled, {css} from "styled-components";
+import { useEffect, useRef } from "react";
 import Calendar from "../Calendar_Com/Calendar";
 
 const PayCalWrap = styled.div`
@@ -15,10 +16,25 @@ const PayCalWrap = styled.div`
 `
 
 
-export const PayCal = () => {
+export const PayCal = ({setOpenCal}) => {
+
+	const calRef = useRef();
+
+	useEffect(() => {
+		const handler = (event) => {
+			if (calRef.current && !calRef.current.contains(event.target))
+				setOpenCal(false);
+		};
+
+		document.addEventListener('click', handler);
+
+		return () => {
+			document.removeEventListener('click', handler);
+		};
+	});
 
 	return (
-		<PayCalWrap>
+		<PayCalWrap ref={calRef}>
 			
 			<Calendar />
 		</PayCalWrap>

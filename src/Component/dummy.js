@@ -19,6 +19,7 @@ const expl = {
 	fac : [],
 	min_day : 1,
 	review_list : [],
+	price: 100000,
 };
 class review_rate {
 	constructor (clean, precision, comunication, location, checkin, price) {

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect} from "react";
+import { useSelector } from "react-redux";
 import { PayCheckin } from "./PayCheckin";
 import { PayCheckout } from "./PayCheckout";
 import { PayFont } from "./PayOpt";
@@ -26,33 +27,28 @@ const PayCheckoutWrap = styled.div`
 export const PayDate = () => {
 
 	const [openCal, setOpenCal] = useState(false);
+	const booking = useSelector(state => state.booking);
 
-	// useEffect(() => {
-	// 	const handler = (event) => {
-	// 		if (menuListRef.current && !menuListRef.current.contains(event.target) && !props.menuBtnRef.current.contains(event.target))
-	// 			props.menu(false);
-	// 	};
+	const calOpen = (e) => {
+		if (!openCal) {
+			setOpenCal(true);
+			e.stopPropagation();
+		}
+	}
 
-	// 	document.addEventListener('mousedown', handler);
-
-	// 	return () => {
-	// 		document.removeEventListener('mousedown', handler);
-	// 	};
-	// });
-	
 	return (
-		<PayDateWrap onClick={() => {setOpenCal(true)}}>
-			{openCal && <PayCal />}
+		<PayDateWrap onClick={(e) => calOpen(e)}>
+			{openCal && <PayCal setOpenCal={setOpenCal}/>}
 			<PayCheckinWrap>
 				<PayFont>체크인</PayFont>
 				<div style={{ lineHeight: "18px", color: "#717171", lineHeight: "20px" }}>
-					날짜 추가
+					{booking.checkinDate ? booking.checkinDate : "날짜 추가"}
 				</div>
 			</PayCheckinWrap>
 			<PayCheckoutWrap>
 				<PayFont>체크아웃</PayFont>
 				<div style={{ lineHeight: "18px", color: "#717171" }}>
-					날짜 추가
+				{booking.checkoutDate ? booking.checkoutDate : "날짜 추가"}
 				</div>
 			</PayCheckoutWrap>
 		</PayDateWrap>

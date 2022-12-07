@@ -1,6 +1,7 @@
 import styled, {css} from "styled-components";
 import { PayReview } from "./PayReview";
 import { useSelector } from "react-redux";
+import expl from "../../dummy";
 
 
 const PayTitleWrap = styled.div`
@@ -33,7 +34,7 @@ export const PayTitle = () => {
 	return (
 		<PayTitleWrap booking={booking.checkoutDate}>
 			<PayTitleText>
-					요금을 확인하려면 날짜를 입력하세요.
+					{booking.checkoutDate ? `\\${expl.price}/박` : "요금을 확인하려면 날짜를 입력하세요."}
 			</PayTitleText>	
 			<PayReview />
 		</PayTitleWrap>

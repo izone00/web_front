@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import { PayTitle } from "./PayTitle";
 import { PayOk } from "./PayOk";
 import { PayOpt } from "./PayOpt";
+import { PayBill } from "./PayBill";
 const PayCon = styled.div`
 	position: sticky;
 	float: right;
@@ -15,11 +17,14 @@ const PayCon = styled.div`
 
 const Pay = () => {
 
+	const booking = useSelector(state => state.booking);
+
 	return (
 		<PayCon>
 			<PayTitle />
 			<PayOpt />
 			<PayOk />
+			{booking.checkoutDate && <PayBill />}
 		</PayCon>
 	);
 };

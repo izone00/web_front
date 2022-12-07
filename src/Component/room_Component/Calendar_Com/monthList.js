@@ -84,3 +84,26 @@ for (let i = 1; i < 12; i++) {
 
 console.log(monList);
 export { monList };
+
+export const calNight = (checkin, checkout) => {
+	const inSpl = checkin.split('.').map((str) => Number(str));
+	const outSpl = checkout.split('.').map((str) => Number(str));
+	let night = 1;
+	console.log(inSpl, outSpl);
+	while (inSpl[0] < outSpl[0] || inSpl[1] < outSpl[1] || inSpl[2] < outSpl[2]) {
+		if (inSpl[2] < monthLen[inSpl[1]]) {
+			inSpl[2] += 1;
+		}
+		else if (inSpl[1] != 12) {
+			inSpl[1] += 1;
+			inSpl[2] = 1;
+		}
+		else {
+			inSpl[0] += 1;
+			inSpl[1] = 1;
+			inSpl[2] = 1;
+		}
+		night += 1;
+	}
+	return (night);
+}

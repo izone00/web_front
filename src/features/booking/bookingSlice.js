@@ -21,7 +21,7 @@ export const bookingSlice = createSlice({
 		checkoutDate: "",
 		availableMaxDate: "9999.99.99",
 		hoverDate: "",
-		adultNum: 0,
+		adultNum: 1,
 		childNum: 0,
 		babeNum: 0,
 		petNum: 0,
@@ -42,10 +42,37 @@ export const bookingSlice = createSlice({
 			state.checkinDate = "";
 			state.checkoutDate = "";
 			state.availableMaxDate = "9999.99.99";
+		},
+		increaseGuestNum: (state, action) => {
+			if (action.payload === "adult")
+				state.adultNum += 1;
+			else if (action.payload === "child")
+				state.childNum += 1;
+			else if (action.payload === "babe")
+				state.babeNum += 1;
+			else if (action.payload === "pet")
+				state.petNum += 1;
+		},
+		decreaseGuestNum: (state, action) => {
+			if (action.payload === "adult")
+				state.adultNum -= 1;
+			else if (action.payload === "child")
+				state.childNum -= 1;
+			else if (action.payload === "babe")
+				state.babeNum -= 1;
+			else if (action.payload === "pet")
+				state.petNum -= 1;
 		}
 	}
 });
 
-export const { updateCheckin, updateCheckout, updateHoverDate, clearDate } = bookingSlice.actions;
+export const {
+	updateCheckin,
+	updateCheckout,
+	updateHoverDate,
+	clearDate,
+	increaseGuestNum,
+	decreaseGuestNum
+} = bookingSlice.actions;
 export { dateCmp };
 export default bookingSlice.reducer;
