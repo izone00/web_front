@@ -11,6 +11,7 @@ const PayCalWrap = styled.div`
 	padding: 24px 32px 16px 32px;
 	background-color: white;
 
+	z-index: 1;
 	//temp
 	border: 1px black solid;
 `
@@ -35,7 +36,6 @@ export const PayCal = ({setOpenCal}) => {
 
 	return (
 		<PayCalWrap ref={calRef}>
-			
 			<Calendar />
 		</PayCalWrap>
 	);

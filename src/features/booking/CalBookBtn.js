@@ -53,7 +53,7 @@ const CalDayBtn = styled.button`
 	background-color: inherit;
 
 	${props =>
-		props.clicked ?
+		(props.clicked ?
 		css`
 			cursor: auto;
 			color: white;
@@ -75,12 +75,13 @@ const CalDayBtn = styled.button`
 				border: 1px solid black;
 				background-color: #F7F7F7;
 			}
-		`))}
+		`)))}
 
 	${props =>
 		props.unavailable && 
 		css`
 			cursor: auto;
+			pointer-events: none;
 			font-weight: 400;
 			color: #B0B0B0;
 			text-decoration: line-through;
@@ -92,6 +93,7 @@ const CalDayBtn = styled.button`
 `
 
 export const CalBookBtn = ({day}) => {
+
 	const booking = useSelector(state => state.booking);
 	const dispatch = useDispatch();
 

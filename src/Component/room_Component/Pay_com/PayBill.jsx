@@ -2,19 +2,31 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import expl from "../../dummy";
 import { calNight } from "../Calendar_Com/monthList";
+import { Fragment } from "react";
 
 const PayBillWrap = styled.div`
 	box-sizing: border-box;
 	width: 100%;
 	margin-top: 24px;
 `
+const BillMessageWrap = styled.div`
+	display: flex;
+	justify-content: center;
+	margin-top: 8px;
+`
+const BillMessage = styled.div`
+	margin-top: 8px;
+	line-height: 18px;
+	color: #222222;
+	font-size: 14px;
+	font-weight: 400;
+`
 const BillDetail = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	height: 20px;
-	padding-top: 16px;
-
+	padding-top: ${props => props.padTop}px;
 `
 const BillTotal = styled.div`
 	display: flex;
@@ -32,19 +44,26 @@ export const PayBill = () => {
 	let night = calNight(booking.checkinDate, booking.checkoutDate);
 
 	return (
-		<PayBillWrap>
-			<BillDetail>
-				<div>{`\\${expl.price * num} X ${night}박`}</div>
-				<div>\{expl.price * num * night}</div>
-			</BillDetail>
-			<BillDetail>
-				<div>서비스 수수료</div>
-				<div>\{Math.floor(expl.price*num*night*14/100)}</div>
-			</BillDetail>
-			<BillTotal>
-				<div>총 합계</div>
-				<div>\{expl.price*num*3 + Math.floor(expl.price*night*14/100)}</div>
-			</BillTotal>
-		</PayBillWrap>
+		<Fragment>
+			<BillMessageWrap>
+				<BillMessage>
+					예약 확정 전에는 요금이 청구되지 않습니다.
+				</BillMessage>
+			</BillMessageWrap>
+			<PayBillWrap>
+				<BillDetail padTop={0}>
+					<div>{`₩${(expl.price * num).toLocaleString('ko-KR')} x ${night}박`}</div>
+					<div>₩{(expl.price * num * night).toLocaleString('ko-KR')}</div>
+				</BillDetail>
+				<BillDetail padTop={16}>
+					<div>서비스 수수료</div>
+					<div>₩{Math.floor(expl.price * num * night * 14 / 100).toLocaleString('ko-KR')}</div>
+				</BillDetail>
+				<BillTotal padTop={16}>
+					<div>총 합계</div>
+					<div>₩{(expl.price * num * 3 + Math.floor(expl.price * night * 14 / 100)).toLocaleString('ko-KR')}</div>
+				</BillTotal>
+			</PayBillWrap>
+		</Fragment>
 	)
 }

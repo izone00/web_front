@@ -1,10 +1,6 @@
 import styled, {css} from "styled-components";
 import { CalBookBtn } from "../../../features/booking/CalBookBtn";
 
-const CalWeek = styled.div`
-	
-`
-
 const CalDayTable = ({ date }) => {
 
 	const CalDayList = date.dayTable.map((row) => {
