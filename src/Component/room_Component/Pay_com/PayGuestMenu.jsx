@@ -22,7 +22,6 @@ export const PayGuestMenu = ({setGuestMenuOpen}) => {
 	const menuRef = useRef();
 
 	useEffect(() => {
-		console.log(menuRef.current);
 		const handler = (event) => {
 			if (menuRef.current && !menuRef.current.contains(event.target))
 				setGuestMenuOpen(false);

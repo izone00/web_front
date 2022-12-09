@@ -1,20 +1,11 @@
 import styled, {css} from "styled-components";
 import { useState } from 'react';
-import CalDayTable from "./CalDayTable";
 import { CalClearBtn } from "../../../features/booking/CalClearBtn";
-import { monList } from "./monthList";
+import { CalWeek } from "./CalWeek";
 import { RightSvg, LeftSvg } from "../../svg";
-const CalCon = styled.div`
-	
-`;
-const CalWeek = styled.div`
-	position: absolute;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	
-	width: 100%;
-`
+import CalDayTable from "./CalDayTable";
+import { monList } from "./monthList";
+
 const CalMon = styled.div`
 	/* display: block; */
 	/* white-space: normal; */
@@ -42,7 +33,6 @@ const CalWrap = styled.div`
 		from {transform: translate(-100%, 0)}
 		to {transform: translate(0, 0);}
 	}
-	${props => console.log(!(props.trans))}
 	${props => 
 		props.trans &&
 		(props.trans === "toLeft" ?
@@ -124,15 +114,7 @@ const Calendar = () => {
 			<CalMon>
 				{table.year}년 {table.month}월
 			</CalMon>
-			<CalWeek>
-				<div>월</div>
-				<div>월</div>
-				<div>월</div>
-				<div>월</div>
-				<div>월</div>
-				<div>월</div>
-				<div>월</div>
-			</CalWeek>
+			
 			<CalDayTable date={table} />
 		</CalWrap>
 	));
@@ -144,6 +126,7 @@ const Calendar = () => {
 						{CalTableList}
 				</CalSlider>
 			</div>
+			<CalWeek />
 			<LeftBtn unavailble={viewIdx === 0} onClick={() => onClickLeft()}>
 				<LeftSvg />
 			</LeftBtn>

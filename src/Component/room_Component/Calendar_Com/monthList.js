@@ -1,5 +1,5 @@
 import { bookList } from "./book";
-const week = ["일", "월", "화", "수" , "목", "금", "토"];
+export const week = ["일", "월", "화", "수" , "목", "금", "토"];
 const monthLen = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 let now = new Date();
 let today = {

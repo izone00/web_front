@@ -27,6 +27,8 @@ const BillDetail = styled.div`
 	justify-content: space-between;
 	height: 20px;
 	padding-top: ${props => props.padTop}px;
+	font-size: 16px;
+	font-weight: 400;
 `
 const BillTotal = styled.div`
 	display: flex;
@@ -36,6 +38,8 @@ const BillTotal = styled.div`
 	margin-top: 24px;
 	padding-top: 24px;
 	border-top: 1px solid #B0B0B0;
+	font-size: 16px;
+	font-weight: 600;
 `
 export const PayBill = () => {
 
@@ -52,11 +56,11 @@ export const PayBill = () => {
 			</BillMessageWrap>
 			<PayBillWrap>
 				<BillDetail padTop={0}>
-					<div>{`₩${(expl.price * num).toLocaleString('ko-KR')} x ${night}박`}</div>
+					<div><u>{`₩${(expl.price * num).toLocaleString('ko-KR')} x ${night}박`}</u></div>
 					<div>₩{(expl.price * num * night).toLocaleString('ko-KR')}</div>
 				</BillDetail>
 				<BillDetail padTop={16}>
-					<div>서비스 수수료</div>
+					<div><u>서비스 수수료</u></div>
 					<div>₩{Math.floor(expl.price * num * night * 14 / 100).toLocaleString('ko-KR')}</div>
 				</BillDetail>
 				<BillTotal padTop={16}>

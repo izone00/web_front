@@ -25,6 +25,7 @@ export const bookingSlice = createSlice({
 		childNum: 0,
 		babeNum: 0,
 		petNum: 0,
+		openCal: false,
 	},
 	reducers: {
 		updateCheckin: (state, action) => {
@@ -62,6 +63,9 @@ export const bookingSlice = createSlice({
 				state.babeNum -= 1;
 			else if (action.payload === "pet")
 				state.petNum -= 1;
+		},
+		setOpenCal: (state, action) => {
+			state.openCal = action.payload;
 		}
 	}
 });
@@ -72,7 +76,8 @@ export const {
 	updateHoverDate,
 	clearDate,
 	increaseGuestNum,
-	decreaseGuestNum
+	decreaseGuestNum,
+	setOpenCal,
 } = bookingSlice.actions;
 export { dateCmp };
 export default bookingSlice.reducer;

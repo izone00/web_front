@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const PayOkWrap = styled.button`
 	width: 100%;
@@ -15,9 +16,10 @@ const PayOkWrap = styled.button`
 
 export const PayOk = () => {
 
+	const booking = useSelector(state => state.booking)
 	return (
 		<PayOkWrap>
-				예약 가능 여부 보기
+			{booking.checkoutDate ? "에약하기" : "예약 가능 여부 보기"}
 		</PayOkWrap>
 	)
 }

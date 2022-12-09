@@ -34,7 +34,7 @@ export const PayTitle = () => {
 	return (
 		<PayTitleWrap booking={booking.checkoutDate}>
 			<PayTitleText>
-					{booking.checkoutDate ? `₩${expl.price}/박` : "요금을 확인하려면 날짜를 입력하세요."}
+					{booking.checkoutDate ? `₩${expl.price.toLocaleString('ko-KR')}/박` : "요금을 확인하려면 날짜를 입력하세요."}
 			</PayTitleText>	
 			<PayReview />
 		</PayTitleWrap>

@@ -5,6 +5,7 @@ import {
 	updateCheckout,
 	updateHoverDate,
 	dateCmp,
+	setOpenCal,
 } from "./bookingSlice"
 
 const CaldayWrap = styled.td`
@@ -102,8 +103,10 @@ export const CalBookBtn = ({day}) => {
 			dispatch(updateCheckin(date));
 			dispatch(updateCheckout(""));
 		 }
-		else if (booking.checkinDate !== date)
+		else if (booking.checkinDate !== date) {
 			dispatch(updateCheckout(date));
+			dispatch(setOpenCal(false));
+		}
 	}
 
 	const enterDay = (day) => {
