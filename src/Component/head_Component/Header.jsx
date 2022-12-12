@@ -1,7 +1,7 @@
 import Logo from "./Logo"
 import Search from "./Search"
 import Menu from "./Menu"
-import React, {useState} from "react"
+import React from "react"
 import styled, {css} from "styled-components"
 // import test from "../event/test"
 
@@ -23,7 +23,6 @@ const HeaderBar = styled.header`
 `
 
 const Header = (props) => {
-
 
 	return (
 		<HeaderBar site={props.site}>

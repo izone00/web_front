@@ -2,6 +2,7 @@ import styled, {css} from "styled-components";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { RightSvg, LeftSvg } from "../Nav_Com/NavSvg";
+import { ContentList } from "./contentList";
 
 const HomeMainGrid = styled.div`
 	display: grid;
@@ -80,41 +81,66 @@ const ContentImgBtn = styled.button`
 	z-index: 3;
 	transform: scale(0.95);
 	opacity: 0;
-
 	
-	&:hover {
-		transform: scale(1);
-		opacity: 1;
-		box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
-	}
 	${props =>
-		props.show &&
+		props.show ?
 		css`
 			transition: 0.2s ease;
 			opacity: 0.9;
+			&:hover {
+				transform: scale(1);
+				opacity: 1;
+				box-shadow: 0 0 32px rgba(0, 0, 0, 0.1);
+			}
+		` :
+		css`
+			pointer-events: none;
 		`}
 `
- 
+const ContentTextGrid = styled.div`
+	display: grid;
+	grid-template-rows: 19px 19px 19px 25px;
+	grid-template-columns: auto 50px;
+	gap: 2px 8px;
+	font-size: 15px;
+`
+const ContentTextBold = styled.div`
+	grid-column: 1 / 3;
+	font-weight: 600;
+	color: #222222;
+`
+const ContentTextGrey = styled.div`
+	grid-column: 1 / 3;
+	color: #717171;
+`
+const ContentTextPrice = styled.div`
+	grid-column: 1 / 3;
+	color: #222222;
+`
 const HomeContent = () => {
 	
 	const [imgNum, setImgNum] = useState(0);
 	const [showBtn, setShowBtn] = useState(false);
+
+	const ContentImgList = ContentList.map((img_src, idx) => <ContentImg key={idx} num={idx - imgNum} src={img_src} alt="" />)
 	
 	return (
-		<HomeContentWrap onMouseOver={() => setShowBtn(true)} onMouseOut={() => setShowBtn(false)}>
+		<HomeContentWrap
+			onMouseOver={() => setShowBtn(true)}
+			onMouseOut={() => setShowBtn(false)}
+		>
 			<Link to="./rooms" style={{ textDecoration: "none" }}>
 				<HomeContentImgWrap>
-					<ContentImg num={0 - imgNum} src="https://a0.muscache.com/im/pictures/miso/Hosting-45760329/original/c2153623-4ce3-4fcb-a099-b7a99b31b148.jpeg?im_w=720" alt=""></ContentImg>
-					<ContentImg num={1 - imgNum} src="https://a0.muscache.com/im/pictures/a7de733b-47fd-4dcc-954f-5a79f8525134.jpg?im_w=720" alt=""></ContentImg>
+					{ContentImgList}
 					<ContentImgOptWrap>
 						<ContentHeartWrap>
-							1
+							
 						</ContentHeartWrap>
 						<ContentBtnWrap>
-							<ContentImgBtn show={showBtn} onClick={(e) => { e.preventDefault(); setImgNum(imgNum - 1); }}>
+							<ContentImgBtn show={showBtn && (imgNum > 0)} onClick={(e) => { e.preventDefault(); setImgNum(imgNum - 1); }}>
 								<LeftSvg />
 							</ContentImgBtn>
-							<ContentImgBtn show={showBtn} onClick={(e) => { e.preventDefault(); setImgNum(imgNum + 1); }}>
+							<ContentImgBtn show={showBtn && (imgNum < ContentList.length - 1)} onClick={(e) => { e.preventDefault(); setImgNum(imgNum + 1); }}>
 								<RightSvg />
 							</ContentImgBtn>
 						</ContentBtnWrap>
@@ -123,15 +149,12 @@ const HomeContent = () => {
 						</ContentBarWrap>
 					</ContentImgOptWrap>
 				</HomeContentImgWrap>
-				<div class="content_text">
-					<div class="text_item text_contry">탈랑,태국</div>
-					<div class="text_item text_info">
-						특이
-					</div>
-					<div class="text_item text_author">디자인:Jean-Michel Gathy</div>
-					<div class="text_item text_date">11월 6일~11일</div>
-					<div class="text_item text_price"><span class="text_price_num">\6,417,466</span> /박</div>
-				</div>
+				<ContentTextGrid>
+					<ContentTextBold>탈랑,태국</ContentTextBold>
+					<ContentTextGrey>디자인:Jean-Michel Gathy</ContentTextGrey>
+					<ContentTextGrey>11월 6일~11일</ContentTextGrey>
+					<ContentTextPrice><b>\6,417,466</b> /박</ContentTextPrice>
+				</ContentTextGrid>
 			</Link>
 		</HomeContentWrap>
 	);
@@ -140,9 +163,8 @@ const HomeContent = () => {
 const HomeMain = () => {	
 
 	let contentList = [];
-	for (let i = 0; i < 10; i++) {
-		contentList.push(<HomeContent />);
-	}
+	for (let i = 0; i < 12; i++)
+		contentList.push(<HomeContent key={i}/>);
 	return (
 		<HomeMainGrid>
 			{contentList}

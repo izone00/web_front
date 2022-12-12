@@ -3,7 +3,7 @@ import styled, {css} from "styled-components";
 import Filter from "./NavFilter";
 import { NavRightBtn, NavLeftBtn } from "./NavScrollBtn";
 import NavImgBtn from "./NavImgBtn";
-import { themaList } from "../../thema_list";
+import { themaList } from "./thema_list";
 
 const NavWrap = styled.div`
 	position: sticky;//나중에 수정
@@ -57,10 +57,7 @@ const Nav = () => {
 		}
 	}, []);
 
-	let tempImgList = [];
-	for (let i = 0; i < themaList.length; i++) {
-		tempImgList[i] = <NavImgBtn thema={themaList[i]} click={navClick} setClick={setNavClick}/>
-	};
+	let themaImgList = themaList.map((thema) => <NavImgBtn key={thema.name} thema={thema} click={navClick} setClick={setNavClick}/>);
 
 	return (
 		<NavWrap scroll={isScroll}>
@@ -68,7 +65,7 @@ const Nav = () => {
 				<NavLeftBtn navWidth={isNavRender ? navRef.current.offsetWidth : 0} navRef={navRef}/>
 			</div>
 			<NavImgWrap ref={navRef}>
-				{tempImgList}
+				{themaImgList}
 			</NavImgWrap>
 			<div style={{position: "relative", zIndex: "10"}}>
 				<NavRightBtn navWidth={isNavRender ? navRef.current.offsetWidth : 0} navRef={navRef}/>

@@ -31,10 +31,7 @@
 	color: rgb(255, 56, 92);
 } */
 #menu_box {
-	display: flex;
-	justify-content: end;
-	flex: 1 1 ;
-	height: 42px;
+	
 }
 #menu_bar {
 	display: flex;
@@ -46,28 +43,27 @@
 	cursor: pointer;
 	background-color: inherit;
 }
-#host-btn {
+/* #host-btn {
 	justify-content: center;
 	box-sizing: border-box;
 	width: 100px;
-	/* padding: 11px; */
 	text-align: center;
 	font-size: 14px;
 	color: #222222;
 	font-weight: 600;
 	text-decoration: none;
-}
+} */
 #host-btn:hover {
 	background-color: #F7F7F7;
 	border-radius: 42px;
 }
-#lang {
-	justify-content: center;
+/* #lang {
+	
 	width: 40px;
 	border-style: none;
-	/* padding: 12px 6px 12px 12px; */
+//	padding: 12px 6px 12px 12px;
 	margin-right: 6px;
-}
+} */
 #lang:hover {
 	background-color: #F7F7F7;
 	border-radius: 42px;

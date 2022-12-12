@@ -1,87 +1,73 @@
+import styled, {css} from "styled-components";
 import {EarthSvg, MenuSvg, LoginSvg} from "../svg.js"
 import Sign from "../SignComponent/Sign.jsx";
-import React, { useState, useEffect, useRef } from "react"
-import styled, {css} from "styled-components";
-import { Link } from "react-router-dom"
+import React, { useState, useRef } from "react"
+import { MenuList } from "./MenuList.jsx";
 
-const MenuListCon = styled.div`
-	position: absolute;
-	top : 50%;
-	right: 0;
-	z-index: 99;
+const MenuWrap = styled.div`
 	display: flex;
-	flex-direction: column;
-	box-sizing: border-box;
-	width: 240px;
-	margin-top: 32px;
-	border-radius: 15px;
-	padding: 8px 0;
-	background-color: white;
-	box-shadow: 0 0 10px #DDDDDD;
-	font-size: 14px;
+	justify-content: end;
+	/* align-items: center; */
+	flex: 1 1 ;
+	height: 42px;
 `
-const MenuListBtn = styled.button`
+const MenuHostBtn = styled.div`
 	cursor: pointer;
 	display: flex;
+	justify-content: center;
 	align-items: center;
-	text-align: left;
-	height: 42px;
-	width: 100%;
-	padding-left: 20px;
-	border-style: none;
-	background-color: white;
+	box-sizing: border-box;
+	width: 100px;
+	height: 100%;
+	font-size: 14px;
+	font-weight: 600;
+	color: #222222;
+	text-decoration: none;
+	
 	&:hover {
 		background-color: #F7F7F7;
+		border-radius: 42px;
 	}
 `
-const MenuListLine = styled.div`
-	height: 1px;
-	margin: 8px 0;
-	background-color: #B0B0B0;
-`
-const MenuList = (props) => {
-
-	const showSign = () => {
-		props.sign(true);
-		props.menu(false);
-	};
+const MenuEarthBtn = styled.button`
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	border-style: none;
+	margin-right: 6px;
+	background-color: inherit;
 	
-	const menuListRef = useRef();
-		
-	useEffect(() => {
-		const handler = (event) => {
-			if (menuListRef.current && !menuListRef.current.contains(event.target) && !props.menuBtnRef.current.contains(event.target))
-				props.menu(false);
-		};
+	&:hover {
+		background-color: #F7F7F7;
+		border-radius: 42px;
+	}
+`
+const MenuLoginBtn = styled.button`
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 77px;
+	border: 1px solid lightgray;
+	border-radius: 42px;
+	padding: 5px 5px 5px 12px;
+	color: #717171;
+	background-color: inherit;
+	box-shadow: 0 0 5px #F7F7F7;
 
-		document.addEventListener('mousedown', handler);
+	&:hover {
+		transition: ease 0.3s;
+		box-shadow: 0 4px 4px #DDDDDD;
+	}
 
-		return () => {
-			document.removeEventListener('mousedown', handler);
-		};
-	});
-
-	return (
-		<MenuListCon ref={menuListRef}>
-				<MenuListBtn onClick={showSign}>
-					<span style={{fontWeight: "600"}}>회원 가입</span>
-				</MenuListBtn>
-				<MenuListBtn onClick={showSign}>
-					로그인
-				</MenuListBtn>
-				<MenuListLine />
-				<MenuListBtn>
-					숙소 호스트 되기
-				</MenuListBtn>
-				<MenuListBtn>
-					체험 호스팅 하기
-				</MenuListBtn>
-				<MenuListBtn>
-					도움말
-				</MenuListBtn>
-		</MenuListCon>
-	)
-}
+	${props =>
+		props.click &&
+		css`
+			box-shadow: 0 4px 4px #DDDDDD;
+		`}
+`
 const Menu = () => {
 
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -92,23 +78,22 @@ const Menu = () => {
 	};
 
 	const menuBtnRef = useRef();
+
 	return (
-		<nav id="menu_box">
-			<div id="menu_bar">
-				<a className="menu" id="host-btn" href="./host_airbnb.html">호스트 되기</a>
-				<button className="menu" id="lang">
-					<EarthSvg />
-				</button>
-				<div style={{position: "relative"}}>
-					<button ref={menuBtnRef} className="menu" id="login_menu" onClick={showMenu}>
-						<MenuSvg />
-						<LoginSvg />
-					</button>
-					{menuOpen && <MenuList sign={setSignOpen} menu={setMenuOpen} menuBtnRef={menuBtnRef}/>}
-				</div>
-					{signOpen && <Sign setSignOpen={setSignOpen} />}
+		<MenuWrap>
+			<MenuHostBtn>호스트 되기</MenuHostBtn>
+			<MenuEarthBtn>
+				<EarthSvg />
+			</MenuEarthBtn>
+			<div style={{ position: "relative" }}>
+				<MenuLoginBtn ref={menuBtnRef} click={menuOpen} onClick={showMenu}>
+					<MenuSvg />
+					<LoginSvg />
+				</MenuLoginBtn>
+				{menuOpen && <MenuList sign={setSignOpen} menu={setMenuOpen} menuBtnRef={menuBtnRef} />}
 			</div>
-		</nav>
+			{signOpen && <Sign setSignOpen={setSignOpen} />}
+		</MenuWrap>
 	)
 }
 

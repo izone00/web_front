@@ -220,11 +220,7 @@ body {
 
 }
 .content_text {
-	display: grid;
-	grid-template-rows: 19px 19px 19px 25px;
-	grid-template-columns: auto 50px;
-	gap: 2px 8px;
-	font-size: 15px;
+	
 }
 .content_text:visited {
 	
