@@ -65,7 +65,7 @@ export const PayBill = () => {
 				</BillDetail>
 				<BillTotal padTop={16}>
 					<div>총 합계</div>
-					<div>₩{(expl.price * num * 3 + Math.floor(expl.price * night * 14 / 100)).toLocaleString('ko-KR')}</div>
+					<div>₩{(expl.price * num * night + Math.floor(expl.price * night * 14 / 100)).toLocaleString('ko-KR')}</div>
 				</BillTotal>
 			</PayBillWrap>
 		</Fragment>

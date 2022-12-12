@@ -7,13 +7,10 @@ import { PayCal } from "./PayCal";
 
 const PayDateWrap = styled.div`
 	position: relative;
-	top: -1px;
-	left: -1px;
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	height: 56px;
-	padding-bottom: 1px;
 `
 const PayCheckinWrap = styled.div`
 	width: 50%;

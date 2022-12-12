@@ -72,7 +72,7 @@ const RightSvg = () => {
 };
 const LeftSvg = () => {
 	return (
-		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" ariaHidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: "12px", width: "12px", stroke: "currentcolor", strokeWidth: "4", overflow: "visible"}}><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg>
+		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: "12px", width: "12px", stroke: "currentcolor", strokeWidth: "4", overflow: "visible"}}><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg>
 	);
 };
 const FacSvg = (props) => {
@@ -92,7 +92,17 @@ const AlertSvg = () => {
 }
 const MapSvg = () => {
 	return (
-		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" ariaHidden="true" role="presentation" focusable="false" style={{display: "block", height: "16px", width: "16px", fill: "rgb(255, 255, 255)"}}><path d="M31.245 3.747a2.285 2.285 0 0 0-1.01-1.44A2.286 2.286 0 0 0 28.501 2l-7.515 1.67-10-2L2.5 3.557A2.286 2.286 0 0 0 .7 5.802v21.95a2.284 2.284 0 0 0 1.065 1.941A2.29 2.29 0 0 0 3.498 30l7.515-1.67 10 2 8.484-1.886a2.285 2.285 0 0 0 1.802-2.245V4.247a2.3 2.3 0 0 0-.055-.5zM12.5 25.975l-1.514-.303L9.508 26H9.5V4.665l1.514-.336 1.486.297v21.349zm10 1.36l-1.515.337-1.485-.297V6.025l1.514.304L22.493 6h.007v21.335z"></path></svg>
+		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", height: "16px", width: "16px", fill: "rgb(255, 255, 255)"}}><path d="M31.245 3.747a2.285 2.285 0 0 0-1.01-1.44A2.286 2.286 0 0 0 28.501 2l-7.515 1.67-10-2L2.5 3.557A2.286 2.286 0 0 0 .7 5.802v21.95a2.284 2.284 0 0 0 1.065 1.941A2.29 2.29 0 0 0 3.498 30l7.515-1.67 10 2 8.484-1.886a2.285 2.285 0 0 0 1.802-2.245V4.247a2.3 2.3 0 0 0-.055-.5zM12.5 25.975l-1.514-.303L9.508 26H9.5V4.665l1.514-.336 1.486.297v21.349zm10 1.36l-1.515.337-1.485-.297V6.025l1.514.304L22.493 6h.007v21.335z"></path></svg>
 	)
 }
-export {LogoSvg, SearchSvg, EarthSvg, MenuSvg, LoginSvg, StarSvg, NoteSvg, UpSvg, DownSvg, RightSvg, LeftSvg, FacSvg, XSvg, AlertSvg, MapSvg};
+const MinusSvg = () => {
+	return (
+		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: "12px", width: "12px", stroke: "currentcolor", strokeWidth: "5.33333", overflow: "visible"}}><path d="m2 16h28"></path></svg>
+	)
+}
+const PlusSvg = () => {
+	return (
+		<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style={{display: "block", fill: "none", height: "12px", width: "12px", stroke: "currentcolor", strokeWidth: "5.33333", overflow: "visible"}}><path d="m2 16h28m-14-14v28"></path></svg>
+	)
+}
+export {LogoSvg, SearchSvg, EarthSvg, MenuSvg, LoginSvg, StarSvg, NoteSvg, UpSvg, DownSvg, RightSvg, LeftSvg, FacSvg, XSvg, AlertSvg, MapSvg, MinusSvg, PlusSvg};

@@ -47,7 +47,7 @@ const makeDayTable = (startday, month, year) => {
 		else
 			dayTable[w][d % 7] = {date: "", booked: true};
 		if (d % 7 == 6) {
-			if (dayTable[w][d % 7].date === "")
+			if (dayTable[w][d % 7].date === "" || d + 1 - startday === monthLen[month])
 				break;
 			w += 1;
 			dayTable[w] = [];
@@ -82,7 +82,7 @@ for (let i = 1; i < 12; i++) {
 	);
 }
 
-console.log(monList);
+// console.log(monList);
 export { monList };
 
 export const calNight = (checkin, checkout) => {

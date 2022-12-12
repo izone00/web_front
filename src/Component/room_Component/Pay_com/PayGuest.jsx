@@ -6,9 +6,7 @@ import { PayGuestMenu } from "./PayGuestMenu";
 import { UpSvg, DownSvg } from "../../svg";
 
 const PayGuestWrap = styled.div`
-	cursor: pointer;
 	position: relative;
-	top: -2px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -19,6 +17,7 @@ const PayGuestWrap = styled.div`
 	${props =>
 		props.click &&
 		css`
+			padding: 13px 12px 9px 12px;
 			border: 2px solid #222222;
 			border-radius: 8px;
 			padding-right: 10px;

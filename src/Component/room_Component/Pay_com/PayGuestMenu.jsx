@@ -9,11 +9,27 @@ const GuestMenuWrap = styled.div`
 	top: 56px;
 	left: 0;
 	width: 100%;
+	border-radius: 4px;
 	padding: 16px;
 	background-color: white;
+	box-shadow: 0 0 4px #DDDDDD;
+`
+const GuestCloseBtn = styled.button`
+	cursor: pointer;
+	float: right;
+	border: none;
+	border-radius: 8px;
+	margin: 0 -10px;
+	padding: 10px;
+	background-color: inherit;
+	line-height: 20px;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: underline;
 
-	//temp
-	border: 1px solid black;
+	&:hover {
+		background-color: #F7F7F7;
+	}
 `
 
 export const PayGuestMenu = ({setGuestMenuOpen}) => {
@@ -40,6 +56,9 @@ export const PayGuestMenu = ({setGuestMenuOpen}) => {
 			<PayGuestBtn guest="child" num={booking.childNum} />
 			<PayGuestBtn guest="babe" num={booking.babeNum} />
 			<PayGuestBtn guest="pet" num={booking.petNum} />
+			<GuestCloseBtn onClick={() => setGuestMenuOpen(false)}>
+				닫기
+			</GuestCloseBtn>
 		</GuestMenuWrap>
 	)
 }

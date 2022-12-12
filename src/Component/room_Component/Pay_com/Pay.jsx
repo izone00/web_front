@@ -9,10 +9,10 @@ const PayCon = styled.div`
 	float: right;
 	top: 48px;
 	width: 70%;
-	border: 1px solid #DDDDDD;
 	border-radius: 12px;
 	margin: 48px 0;
 	padding: 24px;
+	box-shadow: 0px 0px 8px #B0B0B0;
 `
 
 const Pay = () => {

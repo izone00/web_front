@@ -1,4 +1,3 @@
-import styled, {css} from "styled-components";
 import { CalBookBtn } from "../../../features/booking/CalBookBtn";
 
 const CalDayTable = ({ date }) => {
@@ -6,8 +5,8 @@ const CalDayTable = ({ date }) => {
 	const CalDayList = date.dayTable.map((row) => {
 
 		return (
-			<tr style={{ margin: "0 1px", position: "relative" }}>
-				{row.map((day) => <CalBookBtn day={day} />)}
+			<tr key={row[0].date || "empty"} style={{ margin: "0 1px", position: "relative" }}>
+				{row.map((day, idx) => <CalBookBtn key={idx} day={day} />)}
 			</tr>
 		);
 	});

@@ -29,8 +29,8 @@ const CalWeekElem = styled.div`
 
 export const CalWeek = ()	=> {
 
-	const CalWeekList = week.map((dayOfWeek) =>
-		<CalWeekElem>
+	const CalWeekList = week.map((dayOfWeek, idx) =>
+		<CalWeekElem key={idx}>
 			{dayOfWeek}
 		</CalWeekElem>
 	)

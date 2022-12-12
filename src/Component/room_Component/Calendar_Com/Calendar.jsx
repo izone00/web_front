@@ -27,22 +27,21 @@ const CalWrap = styled.div`
 	padding: 0 13px;
 	@keyframes toLeft {
 		from {transform: translate(0, 0)}
-		to {transform: translate(-100%, 0);}
+		to {transform: translate(-100%, 0)}
 	}
 	@keyframes toRight {
 		from {transform: translate(-100%, 0)}
-		to {transform: translate(0, 0);}
+		to {transform: translate(0, 0)}
 	}
 	${props => 
 		props.trans &&
 		(props.trans === "toLeft" ?
 		css`
-			animation: toLeft 1s ease forwards;
+			animation: toLeft 0.4s ease forwards;
 		` :
 		css`
-			animation: toRight 1s ease forwards;
+			animation: toRight 0.4s ease forwards;
 		`)}
-
 ` 
 const	RightBtn = styled.button`
 	cursor: pointer;
@@ -67,6 +66,7 @@ const	RightBtn = styled.button`
 		props.unavailble &&
 		css`
 			pointer-events: none;
+			color: #DDDDDD;
 		`}
 `
 const	LeftBtn = styled.button`
@@ -89,6 +89,7 @@ const	LeftBtn = styled.button`
 		props.unavailble &&
 		css`
 			pointer-events: none;
+			color: #DDDDDD;
 		`}
 `
 
@@ -110,11 +111,10 @@ const Calendar = () => {
 	};
 
 	const CalTableList = viewCal.map((table) => (
-		<CalWrap trans={trans}>
+		<CalWrap key={String(table.year) + String(table.month)} trans={trans}>
 			<CalMon>
 				{table.year}년 {table.month}월
 			</CalMon>
-			
 			<CalDayTable date={table} />
 		</CalWrap>
 	));
@@ -122,7 +122,7 @@ const Calendar = () => {
 	return (
 		<div style={{position: "relative", width: "100%"}}>
 			<div style={{textAlign: "center", width: "100%"}}>
-				<CalSlider key={String(viewIdx) + trans}>
+				<CalSlider key={viewIdx}>
 						{CalTableList}
 				</CalSlider>
 			</div>
