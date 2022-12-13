@@ -14,9 +14,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 ## 프로젝트 설명
-리액트를 처음 배우기 위해 진행한 에어비앤비 클론코딩 프로젝트입니다.
-width가 1500px 정도에 맞게 만들어져있습니다.
-
+* 리액트를 처음 배우기 위해 진행한 에어비앤비 클론코딩 프로젝트입니다.
+* width가 1500px 정도에 맞게 만들어져있습니다.
+* Issues에 가면 시현 영상이 있습니다.
 
 ## 구현된 페이지
 
